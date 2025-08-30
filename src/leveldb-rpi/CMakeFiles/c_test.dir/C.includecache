@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/c_test.c
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/c_test.c
 leveldb/c.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/leveldb/c.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/leveldb/c.h
 stddef.h
 -
 stdio.h

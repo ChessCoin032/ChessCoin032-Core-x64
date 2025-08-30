@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/autocompact_test.dir/db/autocompact_test.cc.o"
+  "CMakeFiles/autocompact_test.dir/db/autocompact_test.cc.o.d"
   "CMakeFiles/autocompact_test.dir/util/testharness.cc.o"
+  "CMakeFiles/autocompact_test.dir/util/testharness.cc.o.d"
   "CMakeFiles/autocompact_test.dir/util/testutil.cc.o"
+  "CMakeFiles/autocompact_test.dir/util/testutil.cc.o.d"
   "autocompact_test"
   "autocompact_test.pdb"
 )

@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/env_test.dir/util/env_test.cc.o"
+  "CMakeFiles/env_test.dir/util/env_test.cc.o.d"
   "CMakeFiles/env_test.dir/util/testharness.cc.o"
+  "CMakeFiles/env_test.dir/util/testharness.cc.o.d"
   "CMakeFiles/env_test.dir/util/testutil.cc.o"
+  "CMakeFiles/env_test.dir/util/testutil.cc.o.d"
   "env_test"
   "env_test.pdb"
 )

@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/env_test.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/env_test.cc
 leveldb/env.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/leveldb/env.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/leveldb/env.h
 algorithm
 -
 atomic
 -
 port/port.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/port/port.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/port/port.h
 port/thread_annotations.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/port/thread_annotations.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/port/thread_annotations.h
 util/mutexlock.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/mutexlock.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/mutexlock.h
 util/testharness.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/testharness.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/testharness.h
 util/testutil.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/testutil.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/testutil.h
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/testharness.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/testharness.cc
 util/testharness.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/testharness.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/testharness.h
 stdlib.h
 -
 sys/stat.h
@@ -38,13 +38,13 @@ string
 vector
 -
 leveldb/env.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/leveldb/env.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/leveldb/env.h
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/testutil.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/testutil.cc
 util/testutil.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/testutil.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/testutil.h
 util/random.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/random.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/random.h
 
 helpers/memenv/memenv.h
 leveldb/export.h

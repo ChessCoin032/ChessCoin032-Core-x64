@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/coding_test.dir/util/coding_test.cc.o"
+  "CMakeFiles/coding_test.dir/util/coding_test.cc.o.d"
   "CMakeFiles/coding_test.dir/util/testharness.cc.o"
+  "CMakeFiles/coding_test.dir/util/testharness.cc.o.d"
   "CMakeFiles/coding_test.dir/util/testutil.cc.o"
+  "CMakeFiles/coding_test.dir/util/testutil.cc.o.d"
   "coding_test"
   "coding_test.pdb"
 )

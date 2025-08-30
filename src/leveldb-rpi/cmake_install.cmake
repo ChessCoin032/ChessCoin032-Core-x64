@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb
+# Install script for directory: /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -42,53 +42,57 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/arm-linux-gnueabihf" TYPE STATIC_LIBRARY FILES "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/libleveldb.a")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/libleveldb.a")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/leveldb" TYPE FILE FILES
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/c.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/cache.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/comparator.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/db.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/dumpfile.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/env.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/export.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/filter_policy.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/iterator.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/options.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/slice.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/status.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/table_builder.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/table.h"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/include/leveldb/write_batch.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/c.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/cache.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/comparator.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/db.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/dumpfile.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/env.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/export.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/filter_policy.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/iterator.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/options.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/slice.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/status.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/table_builder.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/table.h"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/include/leveldb/write_batch.h"
     )
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/arm-linux-gnueabihf/cmake/leveldb/leveldbTargets.cmake")
-    file(DIFFERENT EXPORT_FILE_CHANGED FILES
-         "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/arm-linux-gnueabihf/cmake/leveldb/leveldbTargets.cmake"
-         "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/Export/lib/arm-linux-gnueabihf/cmake/leveldb/leveldbTargets.cmake")
-    if(EXPORT_FILE_CHANGED)
-      file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/arm-linux-gnueabihf/cmake/leveldb/leveldbTargets-*.cmake")
-      if(OLD_CONFIG_FILES)
-        message(STATUS "Old export file \"$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/arm-linux-gnueabihf/cmake/leveldb/leveldbTargets.cmake\" will be replaced.  Removing files [${OLD_CONFIG_FILES}].")
-        file(REMOVE ${OLD_CONFIG_FILES})
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/leveldb/leveldbTargets.cmake")
+    file(DIFFERENT _cmake_export_file_changed FILES
+         "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/leveldb/leveldbTargets.cmake"
+         "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/Export/f90a79f6c24c38ae6b0a9cccec147da8/leveldbTargets.cmake")
+    if(_cmake_export_file_changed)
+      file(GLOB _cmake_old_config_files "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/leveldb/leveldbTargets-*.cmake")
+      if(_cmake_old_config_files)
+        string(REPLACE ";" ", " _cmake_old_config_files_text "${_cmake_old_config_files}")
+        message(STATUS "Old export file \"$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/leveldb/leveldbTargets.cmake\" will be replaced.  Removing files [${_cmake_old_config_files_text}].")
+        unset(_cmake_old_config_files_text)
+        file(REMOVE ${_cmake_old_config_files})
       endif()
+      unset(_cmake_old_config_files)
     endif()
+    unset(_cmake_export_file_changed)
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/arm-linux-gnueabihf/cmake/leveldb" TYPE FILE FILES "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/Export/lib/arm-linux-gnueabihf/cmake/leveldb/leveldbTargets.cmake")
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/arm-linux-gnueabihf/cmake/leveldb" TYPE FILE FILES "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/Export/lib/arm-linux-gnueabihf/cmake/leveldb/leveldbTargets-noconfig.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/leveldb" TYPE FILE FILES "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/Export/f90a79f6c24c38ae6b0a9cccec147da8/leveldbTargets.cmake")
+  if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^()$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/leveldb" TYPE FILE FILES "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/Export/f90a79f6c24c38ae6b0a9cccec147da8/leveldbTargets-noconfig.cmake")
   endif()
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/arm-linux-gnueabihf/cmake/leveldb" TYPE FILE FILES
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/cmake/leveldbConfig.cmake"
-    "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/leveldbConfigVersion.cmake"
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/leveldb" TYPE FILE FILES
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/cmake/leveldbConfig.cmake"
+    "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/leveldbConfigVersion.cmake"
     )
 endif()
 
@@ -100,5 +104,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

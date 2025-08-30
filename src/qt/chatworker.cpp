@@ -1,29 +1,57 @@
 // chatworker.cpp
 #include "chatworker.h"
+#include <QNetworkProxy>
 
 ChatWorker::ChatWorker(QObject *parent)
     : QObject(parent), socket(new QTcpSocket(this))
 {
+    // Configure socket
+    socket->setProxy(QNetworkProxy::NoProxy);
+
     connect(socket, &QTcpSocket::connected, this, &ChatWorker::onConnected);
     connect(socket, &QTcpSocket::disconnected, this, &ChatWorker::onDisconnected);
     connect(socket, &QTcpSocket::readyRead, this, &ChatWorker::onReadyRead);
     connect(socket, &QTcpSocket::bytesWritten, this, &ChatWorker::onBytesWritten);
-    connect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(onHandleError(QAbstractSocket::SocketError)));
+    connect(socket, QOverload<QAbstractSocket::SocketError>::of(&QTcpSocket::error),
+            this, &ChatWorker::onHandleError);
 }
+
+ChatWorker::~ChatWorker()
+{
+    if (socket) {
+        socket->disconnectFromHost();
+        if (socket->state() == QAbstractSocket::ConnectedState) {
+            socket->waitForDisconnected(1000);
+        }
+        socket->deleteLater();
+    }
+}
+
 
 void ChatWorker::connectToServer(const QString &serverIp, quint16 port)
 {
-    socket->abort();
+    if (socket->state() != QAbstractSocket::UnconnectedState) {
+        socket->abort();
+    }
+
+    // Configure socket
+    socket->setSocketOption(QAbstractSocket::LowDelayOption, 1);
     socket->connectToHost(serverIp, port);
+
+    if (!socket->waitForConnected(5000)) {
+        emit errorOccurred(tr("Connection timeout"));
+    }
 }
 
 void ChatWorker::sendMessage(const QString &message)
 {
-    if (socket && socket->state() == QAbstractSocket::ConnectedState)
-    {
-        socket->write(message.toUtf8());
-        socket->flush();
+    if (!socket || socket->state() != QAbstractSocket::ConnectedState) {
+        emit errorOccurred(tr("Socket not connected"));
+        return;
     }
+
+    socket->write(message.toUtf8());
+    socket->flush();
 }
 
 void ChatWorker::onConnected()

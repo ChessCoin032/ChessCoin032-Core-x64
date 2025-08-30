@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/arena_test.dir/util/arena_test.cc.o"
+  "CMakeFiles/arena_test.dir/util/arena_test.cc.o.d"
   "CMakeFiles/arena_test.dir/util/testharness.cc.o"
+  "CMakeFiles/arena_test.dir/util/testharness.cc.o.d"
   "CMakeFiles/arena_test.dir/util/testutil.cc.o"
+  "CMakeFiles/arena_test.dir/util/testutil.cc.o.d"
   "arena_test"
   "arena_test.pdb"
 )

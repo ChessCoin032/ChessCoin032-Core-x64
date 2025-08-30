@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/logging_test.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/logging_test.cc
 limits
 -
 string
 -
 leveldb/slice.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/leveldb/slice.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/leveldb/slice.h
 util/logging.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/logging.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/logging.h
 util/testharness.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/testharness.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/testharness.h
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/testharness.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/testharness.cc
 util/testharness.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/testharness.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/testharness.h
 stdlib.h
 -
 sys/stat.h
@@ -32,13 +32,13 @@ string
 vector
 -
 leveldb/env.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/leveldb/env.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/leveldb/env.h
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/testutil.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/testutil.cc
 util/testutil.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/testutil.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/testutil.h
 util/random.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/random.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/random.h
 
 helpers/memenv/memenv.h
 leveldb/export.h

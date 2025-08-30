@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/dbformat_test.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/dbformat_test.cc
 db/dbformat.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/db/dbformat.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/db/dbformat.h
 util/logging.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/util/logging.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/util/logging.h
 util/testharness.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/util/testharness.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/util/testharness.h
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/testharness.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/testharness.cc
 util/testharness.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/testharness.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/testharness.h
 stdlib.h
 -
 sys/stat.h
@@ -28,13 +28,13 @@ string
 vector
 -
 leveldb/env.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/leveldb/env.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/leveldb/env.h
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/testutil.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/testutil.cc
 util/testutil.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/testutil.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/testutil.h
 util/random.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/random.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/random.h
 
 db/dbformat.h
 stdio.h

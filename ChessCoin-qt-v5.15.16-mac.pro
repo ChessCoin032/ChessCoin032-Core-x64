@@ -1,8 +1,8 @@
 TEMPLATE = app
 TARGET = chesscoin-qt
-VERSION = 1.5.2
+VERSION = 1.5.3
 INCLUDEPATH += src src/json src/qt
-DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE QT_SUPPORTSSL
+DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE QT_SUPPORTSSL TWO_CHAT_VERSIONS
 CONFIG += no_include_pwd
 CONFIG += thread
 CONFIG += static
@@ -158,6 +158,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/curlnet.h \
     src/qt/intro.h \
     src/qt/jsonhighlighter.h \
+    src/qt/openbrowserdialog.h \
     src/qt/transactiontablemodel.h \
     src/qt/addresstablemodel.h \
     src/qt/optionsdialog.h \
@@ -264,6 +265,7 @@ HEADERS += src/qt/bitcoingui.h \
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/intro.cpp \
+    src/qt/openbrowserdialog.cpp \
     src/qt/transactiontablemodel.cpp \
     src/qt/addresstablemodel.cpp \
     src/qt/optionsdialog.cpp \
@@ -364,6 +366,7 @@ FORMS += \
     src/qt/forms/chatwidget.ui \
     src/qt/forms/intro.ui \
     src/qt/forms/coincontroldialog.ui \
+    src/qt/forms/openbrowserdialog.ui \
     src/qt/forms/sendcoinsdialog.ui \
     src/qt/forms/addressbookpage.ui \
     src/qt/forms/sendtimelockdialog.ui \

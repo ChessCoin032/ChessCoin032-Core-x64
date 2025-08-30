@@ -924,7 +924,7 @@ else
     boost::filesystem::path pathBootstrap = GetDataDir() / "bootstrap.dat";
     if (boost::filesystem::exists(pathBootstrap))
     {
-        uiInterface.InitMessage(_("Importing bootstrap blockchain data file."));
+        uiInterface.InitMessage(_("Importing bootstrap data file."));
 
         FILE *file = fopen(pathBootstrap.string().c_str(), "rb");
         if (file) {

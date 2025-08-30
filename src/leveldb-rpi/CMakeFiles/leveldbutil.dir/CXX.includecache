@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/leveldbutil.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/leveldbutil.cc
 stdio.h
 -
 leveldb/dumpfile.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/leveldb/dumpfile.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/leveldb/dumpfile.h
 leveldb/env.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/leveldb/env.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/leveldb/env.h
 leveldb/status.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/leveldb/status.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/leveldb/status.h
 
 include/leveldb/dumpfile.h
 string

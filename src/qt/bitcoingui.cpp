@@ -29,6 +29,7 @@
 #include "chatwidget.h"
 #include "burncoinsdialog.h"
 #include "blockbrowser.h"
+#include "openbrowserdialog.h"
 #ifdef SENDTIMLOCK
 #include "sendtimelockdialog.h"
 #endif
@@ -70,6 +71,8 @@
 #include <QWidgetAction>
 #include <QSharedMemory>
 #include <QSettings>
+#include <QDesktopServices>
+#include <QToolButton>
 
 #include <iostream>
 
@@ -92,6 +95,23 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     optionsDialog(0),
     nWeight(0)
 {
+#ifdef CHROMIUM
+    // Kill any orphaned browsers from previous run
+    killAllBrowserInstances();
+#endif
+
+#ifdef TWO_CHAT_VERSIONS
+#ifdef Q_OS_WIN
+    resize(960, 640);
+    setMinimumSize(960, 640);
+#elif defined Q_OS_MAC
+    resize(1160, 690);
+    setMinimumSize(1160, 690);
+#else
+    resize(1090, 680);
+    setMinimumSize(1090, 680);
+#endif
+#else
 #ifdef Q_OS_WIN
     resize(920, 610);
     setMinimumSize(920, 610);
@@ -102,6 +122,8 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     resize(980, 630);
     setMinimumSize(980, 630);
 #endif
+#endif
+
 
     setWindowTitle(tr("ChessCoin 0.32% - Wallet"));
 
@@ -112,7 +134,6 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     qApp->setWindowIcon(QIcon(":icons/bitcoin"));
     setWindowIcon(QIcon(":icons/bitcoin"));
 #endif
-
 
     // Accept D&D of URIs
     setAcceptDrops(true);
@@ -146,7 +167,10 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
 
     signVerifyMessageDialog = new SignVerifyMessageDialog(this);
 
-    chatPage = new QChatWidget(this);
+    chatPage1 = new QChatWidget(this, 1);
+#ifdef TWO_CHAT_VERSIONS
+    chatPage2 = new QChatWidget(this, 2);
+#endif
 
     burnCoinsPage = new BurnCoinsDialog(this);
 
@@ -158,7 +182,10 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     centralWidget->addWidget(addressBookPage);
     centralWidget->addWidget(receiveCoinsPage);
     centralWidget->addWidget(sendCoinsPage);
-    centralWidget->addWidget(chatPage);
+    centralWidget->addWidget(chatPage1);
+#ifdef TWO_CHAT_VERSIONS
+    centralWidget->addWidget(chatPage2);
+#endif
     centralWidget->setContentsMargins(-4, -4, -4, -4);
     setCentralWidget(centralWidget);
 
@@ -174,7 +201,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     frameBlocksLayout->setSpacing(3);
     labelEncryptionIcon = new QLabel();
     labelNTPTimeIcon = new GUIUtil::QHoverLabel();
-    labelStakingIcon = new GUIUtil::QClickableLabel();
+    labelStakingIcon = new QLabel();
     labelConnectionsIcon = new GUIUtil::QClickableLabel();
     labelBlocksIcon = new GUIUtil::QClickableLabel();
 
@@ -191,7 +218,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     frameBlocksLayout->addStretch();
 
     connect(labelNTPTimeIcon, SIGNAL(clicked(QPoint)), this, SLOT(showNTPTimeMessage()));
-    connect(labelStakingIcon, SIGNAL(clicked(QPoint)), this, SLOT(showRPCConsoleDebug()));
+    //connect(labelStakingIcon, SIGNAL(clicked(QPoint)), this, SLOT(showRPCConsoleDebug()));
     connect(labelConnectionsIcon, SIGNAL(clicked(QPoint)), this, SLOT(showRPCNetTraffic()));
     connect(labelBlocksIcon, SIGNAL(clicked(QPoint)), this, SLOT(showRPCConsoleDebug()));
 
@@ -299,11 +326,23 @@ void BitcoinGUI::createActions()
     burnCoinsAction->setIconVisibleInMenu(true);
     tabGroup->addAction(burnCoinsAction);
 
-    chatAction = new QAction(QIcon(":/icons/chat"), tr("&Chat"), this);
-    chatAction->setToolTip(tr("Chatroom for chesscoin 0.32%"));
-    chatAction->setIconVisibleInMenu(true);
-    chatAction->setCheckable(true);
-    tabGroup->addAction(chatAction);
+#ifdef TWO_CHAT_VERSIONS
+    chatAction1 = new QAction(QIcon(":/icons/chat"), tr("&Chat 1.0"), this);
+#else
+    chatAction1 = new QAction(QIcon(":/icons/chat"), tr("&Chat"), this);
+#endif
+    chatAction1->setToolTip(tr("Chatrooms for chesscoin 0.32%"));
+    chatAction1->setIconVisibleInMenu(true);
+    chatAction1->setCheckable(true);
+    tabGroup->addAction(chatAction1);
+
+#ifdef TWO_CHAT_VERSIONS
+    chatAction2 = new QAction(QIcon(":/icons/chat"), tr("C&hat 2.0"), this);
+    chatAction2->setToolTip(tr("Chatrooms 2.0 for chesscoin 0.32%"));
+    chatAction2->setIconVisibleInMenu(true);
+    chatAction2->setCheckable(true);
+    tabGroup->addAction(chatAction2);
+#endif
 
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
@@ -315,8 +354,12 @@ void BitcoinGUI::createActions()
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(gotoAddressBookPage()));
-    connect(chatAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
-    connect(chatAction, SIGNAL(triggered()), this, SLOT(gotoChatRoomPage()));
+    connect(chatAction1, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(chatAction1, SIGNAL(triggered()), this, SLOT(gotoChatRoomPage1()));
+#ifdef TWO_CHAT_VERSIONS
+    connect(chatAction2, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(chatAction2, SIGNAL(triggered()), this, SLOT(gotoChatRoomPage2()));
+#endif
     connect(burnCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(burnCoinsAction, SIGNAL(triggered()), this, SLOT(gotoBurnCoinsPage()));
 
@@ -394,12 +437,53 @@ void BitcoinGUI::createActions()
     explorerAction = new QAction(QIcon(":/icons/find"), tr("Block &Explorer"), this);
     explorerAction->setToolTip(tr("Explore the blockchain and transactions"));
     explorerAction->setIconVisibleInMenu(true);
-    
+
+#ifdef CHROMIUM
+    browserAction = new QAction(QIcon(":/icons/chromium"), tr("Open Chesscoin Browser..."), this);
+    browserAction->setToolTip(tr("Open the built-in browser to view Chesscoin-related websites"));
+    browserAction->setIconVisibleInMenu(true);
+#endif
+
 #ifdef SENDTIMLOCK
     sendTimelockAction = new QAction(QIcon(":/icons/send"), tr("&Send coins with timelock..."), this);
     sendTimelockAction->setToolTip(tr("Send coins by timelock with block height or timestamp"));
     sendTimelockAction->setIconVisibleInMenu(true);
 #endif
+
+    gitLinkAction = new QAction(QIcon(":/icons/github"), tr("&github"), this);
+    gitLinkAction->setToolTip(tr("Open github page"));
+    gitLinkAction->setIconVisibleInMenu(true);
+    connect(gitLinkAction, &QAction::triggered, this, []() {
+        QDesktopServices::openUrl(QUrl("https://github.com/chesscoin032?tab=repositories"));
+    });
+
+    chesscoinLinkAction = new QAction(QIcon(":/icons/bitcoin"), tr("&chesscoin032"), this);
+    chesscoinLinkAction->setToolTip(tr("Open chesscoin032.github.io page"));
+    chesscoinLinkAction->setIconVisibleInMenu(true);
+    connect(chesscoinLinkAction, &QAction::triggered, this, []() {
+        QDesktopServices::openUrl(QUrl("https://chesscoin032.github.io/"));
+    });
+
+    discordLinkAction = new QAction(QIcon(":/icons/discord"), tr("&discord"), this);
+    discordLinkAction->setToolTip(tr("Open discord page"));
+    discordLinkAction->setIconVisibleInMenu(true);
+    connect(discordLinkAction, &QAction::triggered, this, []() {
+        QDesktopServices::openUrl(QUrl("https://discord.gg/CHyGfjU7Vj"));
+    });
+
+    telegramLinkAction = new QAction(QIcon(":/icons/telegram"), tr("&telegram"), this);
+    telegramLinkAction->setToolTip(tr("Open telegram page"));
+    telegramLinkAction->setIconVisibleInMenu(true);
+    connect(telegramLinkAction, &QAction::triggered, this, []() {
+        QDesktopServices::openUrl(QUrl("https://t.me/Chess032"));
+    });
+
+    coingeckoLinkAction = new QAction(QIcon(":/icons/coingecko"), tr("&coingecko"), this);
+    coingeckoLinkAction->setToolTip(tr("Open coingecko page"));
+    coingeckoLinkAction->setIconVisibleInMenu(true);
+    connect(coingeckoLinkAction, &QAction::triggered, this, []() {
+        QDesktopServices::openUrl(QUrl("https://www.coingecko.com/en/coins/chesscoin-0-32"));
+    });
 
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(aboutClicked()));
@@ -415,7 +499,10 @@ void BitcoinGUI::createActions()
     connect(verifyMessageAction, SIGNAL(triggered()), this, SLOT(gotoVerifyMessageTab()));
     connect(chessPlayAction, SIGNAL(triggered()), this, SLOT(onPlayChess()));
     connect(chessResetAction, SIGNAL(triggered()), this, SLOT(onResetChessEngineJson()));
-    connect(explorerAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));     connect(explorerAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
+    connect(explorerAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
+#ifdef CHROMIUM
+    connect(browserAction, SIGNAL(triggered()), this, SLOT(openChessCoinBrowser()));
+#endif
 #ifdef SENDTIMLOCK
     connect(sendTimelockAction, SIGNAL(triggered()), this, SLOT(showSendTimelockDialog()));
 #endif
@@ -456,9 +543,23 @@ void BitcoinGUI::createMenuBar()
     tools->addAction(signMessageAction);
     tools->addAction(verifyMessageAction);
     tools->addSeparator();
-    tools->addAction(chatAction);
+    tools->addAction(chatAction1);
+#ifdef TWO_CHAT_VERSIONS
+    tools->addAction(chatAction2);
+#endif
     tools->addSeparator();
     tools->addAction(explorerAction);
+#ifdef CHROMIUM
+    tools->addSeparator();
+    tools->addAction(browserAction);
+#endif
+
+    QMenu *links = appMenuBar->addMenu(tr("&Links"));
+    links->addAction(chesscoinLinkAction);
+    links->addAction(gitLinkAction);
+    links->addAction(discordLinkAction);
+    links->addAction(telegramLinkAction);
+    links->addAction(coingeckoLinkAction);
 
     QMenu *help = appMenuBar->addMenu(tr("&Help"));
     help->addAction(openRPCConsoleAction);
@@ -471,10 +572,12 @@ void BitcoinGUI::createMenuBar()
     chessmenu->addAction(chessPlayAction);
     chessmenu->addAction(chessResetAction);
 #else
-    QPushButton *popChessBtn = new QPushButton(tr("   &Chess   "));
+    QToolButton *popChessBtn = new QToolButton(this);
     popChessBtn->setStyleSheet("color: lightgreen;");
     popChessBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    popChessBtn->setPopupMode(QToolButton::MenuButtonPopup);
     popChessBtn->setMinimumHeight(24);
+    popChessBtn->setText("Chess");
 
     QMenu *chessmenu = new QMenu(this);
     chessmenu->setStyleSheet("color: lightgreen;");
@@ -500,7 +603,10 @@ void BitcoinGUI::createToolBars()
     mainToolBar->addAction(addressBookAction);
     mainToolBar->addAction(exportAction);
     mainToolBar->addAction(burnCoinsAction);
-    mainToolBar->addAction(chatAction);
+    mainToolBar->addAction(chatAction1);
+#ifdef TWO_CHAT_VERSIONS
+    mainToolBar->addAction(chatAction2);
+#endif
 
     chessToolBar = addToolBar(tr("Chess toolbar"));
     chessToolBar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -1283,14 +1389,25 @@ void BitcoinGUI::showNTPTimeMessage()
     QMessageBox::information(this, tr("NTP Server Time"), msg);
 }
 
-void BitcoinGUI::gotoChatRoomPage()
+void BitcoinGUI::gotoChatRoomPage1()
 {
-    chatAction->setChecked(true);
-    centralWidget->setCurrentWidget(chatPage);
+    chatAction1->setChecked(true);
+    centralWidget->setCurrentWidget(chatPage1);
 
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
+
+#ifdef TWO_CHAT_VERSIONS
+void BitcoinGUI::gotoChatRoomPage2()
+{
+    chatAction2->setChecked(true);
+    centralWidget->setCurrentWidget(chatPage2);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+}
+#endif
 
 void BitcoinGUI::gotoBurnCoinsPage()
 {
@@ -1304,11 +1421,95 @@ void BitcoinGUI::gotoBlockBrowser()
     blockBrowser->setFocus();
 }
 
+
 #ifdef SENDTIMLOCK
 void BitcoinGUI::showSendTimelockDialog()
 {
     sendtimelockdialog dlg(nullptr);
     dlg.setModels(walletModel, clientModel);
     dlg.exec();
+}
+#endif
+
+#ifdef CHROMIUM
+bool BitcoinGUI::isValidChessCoinBrowserPath(const QString &path)
+{
+    if (path.isEmpty())
+        return false;
+
+    QFileInfo fileInfo(path);
+
+    // Universal checks for all platforms
+    bool exists = fileInfo.exists();
+    bool isFile = fileInfo.isFile();
+    bool isReadable = fileInfo.isReadable();
+
+    // Platform-specific executable check
+#if defined(Q_OS_WIN)
+    // Windows: Check if file ends with .exe (case-insensitive)
+    bool isExecutable = path.endsWith(".exe", Qt::CaseInsensitive);
+#else
+    // Linux/macOS: Check execute permission
+    bool isExecutable = fileInfo.isExecutable();
+#endif
+
+    return exists && isFile && isReadable && isExecutable;
+}
+
+void BitcoinGUI::showBrowserSetupDialog()
+{
+    GUIUtil::ChessCoinBrowserDialog dlg(this);
+    int result = dlg.exec();
+
+    if (result == 1) {
+        QString url = "https://update.chesscoin032.com:1032/downloads/browser/index.html";
+        QDesktopServices::openUrl(QUrl(url));
+    } else if (result == 2) {
+        QOpenBrowserDialog openDlg(this);
+        openDlg.exec();
+    }
+}
+
+void BitcoinGUI::openChessCoinBrowser()
+{
+#ifdef Q_OS_MAC
+    QMessageBox::warning(this,
+                         tr("Unsupported Platform"),
+                         tr("This feature is not currently supported on macOS."));
+#else	
+    QSettings settings;
+    QString browserPath = settings.value("browserPath", "").toString();
+
+    if (!isValidChessCoinBrowserPath(browserPath)) {
+        showBrowserSetupDialog();
+        return;
+    }
+    else
+    {
+        QOpenBrowserDialog dlg(this);
+        dlg.exec();
+    }
+#endif
+}
+
+void BitcoinGUI::killAllBrowserInstances()
+{
+#ifdef Q_OS_WINDOWS
+    QProcess process;
+    process.start("taskkill", {"/F", "/IM", "ChessCoinBrowser.exe"});
+    process.waitForFinished();
+#else
+    // Linux/macOS implementation
+    QProcess process;
+
+    // First try graceful termination
+    process.start("pkill", {"-f", "ChessCoinBrowser"});
+    process.waitForFinished();
+
+    // Force kill if needed (after short delay)
+    QThread::msleep(500);
+    process.start("pkill", {"-9", "-f", "ChessCoinBrowser"});
+    process.waitForFinished();
+#endif
 }
 #endif

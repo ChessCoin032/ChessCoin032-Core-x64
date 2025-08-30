@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/dbformat_test.dir/db/dbformat_test.cc.o"
+  "CMakeFiles/dbformat_test.dir/db/dbformat_test.cc.o.d"
   "CMakeFiles/dbformat_test.dir/util/testharness.cc.o"
+  "CMakeFiles/dbformat_test.dir/util/testharness.cc.o.d"
   "CMakeFiles/dbformat_test.dir/util/testutil.cc.o"
+  "CMakeFiles/dbformat_test.dir/util/testutil.cc.o.d"
   "dbformat_test"
   "dbformat_test.pdb"
 )

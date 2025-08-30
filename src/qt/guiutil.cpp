@@ -24,6 +24,7 @@
 #include <QVBoxLayout>
 #include <QMainWindow>
 #include <QShortcut>
+#include <QAbstractButton>
 
 #if (defined (LINUX) || defined (_linux_))
 #include <sys/types.h>
@@ -572,8 +573,22 @@ void HelpMessageBox::printToConsole()
 void HelpMessageBox::showOrPrint()
 {
 #if defined(WIN32)
-        // On Windows, show a message box, as there is no stderr/stdout in windowed applications
-        exec();
+    // Search the "Show Details..." button
+    foreach (QAbstractButton *button, buttons())
+    {
+        if (buttonRole(button) == QMessageBox::ActionRole)
+        {
+            QString str = button->text();
+            int found = str.indexOf("Show Details");
+            if (found != -1)
+            {
+                button->click(); // click it to expand the text
+                break;
+            }
+        }
+    }
+
+    exec();
 #else
         // On other operating systems, print help text to console
         printToConsole();

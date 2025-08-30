@@ -7,6 +7,11 @@
 #include <QLabel>
 #include <QEvent>
 #include <QToolTip>
+#include <QSplashScreen>
+#include <QPainter>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QPushButton>
 
 #include <boost/filesystem.hpp>
 
@@ -162,6 +167,94 @@ namespace GUIUtil
         void enterEvent(QEvent *event) override;
         void focusInEvent(QFocusEvent *event) override;
     };
+
+    /* QMySplashScreen */
+    class QMySplashScreen : public QSplashScreen {
+        Q_OBJECT
+    public:
+        QMySplashScreen(const QPixmap& pixmap = QPixmap(), const QColor& txtcolor = Qt::yellow)
+            : QSplashScreen(pixmap), m_textColor(txtcolor) {}
+
+        void setTextColor(const QColor& color) {
+            m_textColor = color;
+        }
+
+    protected:
+        void drawContents(QPainter* painter) override {
+            painter->setPen(m_textColor);
+            painter->setFont(this->font());
+            QRect textRect = rect().adjusted(20, 20, -20, -10);
+            painter->drawText(textRect, Qt::AlignBottom | Qt::AlignHCenter, message());
+        }
+
+    private:
+        QColor m_textColor;
+    };
+
+    class ChessCoinBrowserDialog : public QDialog
+    {
+        Q_OBJECT
+    public:
+        explicit ChessCoinBrowserDialog(QWidget *parent = nullptr) : QDialog(parent)
+        {
+            setWindowTitle("ChessCoinBrowser Required");
+
+            // === Main layout ===
+            QVBoxLayout *mainLayout = new QVBoxLayout(this);
+
+            // Title text
+            QLabel *titleLabel = new QLabel("<span style='color: red; font-weight: bold; font-size: 14px;'>No browser detected!</span>");
+            titleLabel->setTextFormat(Qt::RichText);
+            mainLayout->addWidget(titleLabel);
+            mainLayout->addSpacing(5);
+
+            // Informative text (selectable!)
+            QLabel *infoLabel = new QLabel("Please download ChessCoinBrowser to continue.\nAfter downloading, configure the path to your existing browser.");
+            infoLabel->setWordWrap(true);
+            infoLabel->setTextInteractionFlags(Qt::TextSelectableByMouse); // allow copy with mouse
+            mainLayout->addWidget(infoLabel);
+            mainLayout->addSpacing(20);
+
+            // === Buttons ===
+            QHBoxLayout *buttonLayout = new QHBoxLayout();
+
+            QPushButton *downloadButton = new QPushButton(" Open Download Page ");
+            QPushButton *browseButton   = new QPushButton(" Set Browser Path...");
+            QPushButton *cancelButton   = new QPushButton("Cancel");
+
+    #ifdef Q_OS_WIN
+            downloadButton->setMinimumWidth(130);
+            browseButton->setMinimumWidth(130);
+    #else
+            downloadButton->setMinimumWidth(160);
+            browseButton->setMinimumWidth(160);
+    #endif
+
+            // Add icons
+            downloadButton->setIcon(QIcon(":/icons/download"));
+            browseButton->setIcon(QIcon(":/icons/open"));
+            cancelButton->setIcon(QIcon(":/icons/quit"));
+
+            // Keep the order: download | browse | cancel
+            buttonLayout->addWidget(downloadButton);
+            buttonLayout->addWidget(browseButton);
+            buttonLayout->addWidget(cancelButton);
+
+            mainLayout->addLayout(buttonLayout);
+
+            // === Connections ===
+            connect(downloadButton, &QPushButton::clicked, this, [this]() {
+                done(1); // return 1 for download
+            });
+            connect(browseButton, &QPushButton::clicked, this, [this]() {
+                done(2); // return 2 for browse
+            });
+            connect(cancelButton, &QPushButton::clicked, this, [this]() {
+                reject(); // standard cancel
+            });
+        }
+    };
+
 
 } // namespace GUIUtil
 

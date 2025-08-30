@@ -2,8 +2,8 @@
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-TARGET_PLATFORM:=i686
-#TARGET_PLATFORM:=x86_64
+#TARGET_PLATFORM:=i686
+TARGET_PLATFORM:=x86_64
 
 DEPSDIR:=/usr/$(TARGET_PLATFORM)-w64-mingw32
 CC:=$(TARGET_PLATFORM)-w64-mingw32-gcc
@@ -50,6 +50,7 @@ OBJS= \
     obj/version.o \
     obj/checkpoints.o \
     obj/netbase.o \
+    obj/ntp.o \
     obj/addrman.o \
     obj/crypter.o \
     obj/key.o \

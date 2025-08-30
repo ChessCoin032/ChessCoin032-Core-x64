@@ -1,8 +1,12 @@
 file(REMOVE_RECURSE
   "CMakeFiles/db_bench.dir/db/db_bench.cc.o"
+  "CMakeFiles/db_bench.dir/db/db_bench.cc.o.d"
   "CMakeFiles/db_bench.dir/util/histogram.cc.o"
+  "CMakeFiles/db_bench.dir/util/histogram.cc.o.d"
   "CMakeFiles/db_bench.dir/util/testharness.cc.o"
+  "CMakeFiles/db_bench.dir/util/testharness.cc.o.d"
   "CMakeFiles/db_bench.dir/util/testutil.cc.o"
+  "CMakeFiles/db_bench.dir/util/testutil.cc.o.d"
   "db_bench"
   "db_bench.pdb"
 )

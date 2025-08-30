@@ -4,6 +4,9 @@ src/chesscoind
 src/test_chesscoin
 src/build.h
 src/qt/locale
+src/leveldb-rpi
+src/leveldb-rpi/CMakeFiles
+
 .*.swp
 *.*~*
 *.bak

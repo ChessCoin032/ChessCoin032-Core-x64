@@ -23,29 +23,41 @@
     </rect>
    </property>
    <layout class="QVBoxLayout" name="vertLayout" stretch="0,0">
-    <property name="leftMargin">
+    <property name="spacing">
      <number>4</number>
+    </property>
+    <property name="leftMargin">
+     <number>9</number>
     </property>
     <property name="topMargin">
-     <number>4</number>
+     <number>9</number>
     </property>
     <property name="rightMargin">
-     <number>4</number>
+     <number>9</number>
     </property>
     <property name="bottomMargin">
-     <number>4</number>
+     <number>9</number>
     </property>
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
       <item>
        <layout class="QHBoxLayout" name="horzServer">
+        <property name="spacing">
+         <number>4</number>
+        </property>
+        <property name="leftMargin">
+         <number>2</number>
+        </property>
         <property name="rightMargin">
          <number>8</number>
         </property>
         <item>
          <widget class="QLabel" name="label">
           <property name="text">
-           <string> Computer Name:</string>
+           <string>Computer Name:</string>
           </property>
           <property name="textInteractionFlags">
            <set>Qt::NoTextInteraction</set>
@@ -54,6 +66,12 @@
         </item>
         <item>
          <widget class="QLabel" name="labelHost">
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
           </property>
@@ -72,11 +90,24 @@
          </widget>
         </item>
         <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
          <widget class="QLabel" name="labelState">
           <property name="maximumSize">
            <size>
-            <width>14</width>
-            <height>14</height>
+            <width>18</width>
+            <height>18</height>
            </size>
           </property>
           <property name="text">
@@ -91,14 +122,24 @@
           <property name="alignment">
            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
           </property>
+          <property name="buddy">
+           <cstring></cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelStateText">
+          <property name="text">
+           <string>Server: OFFLINE</string>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="connButton">
           <property name="minimumSize">
            <size>
-            <width>70</width>
-            <height>24</height>
+            <width>0</width>
+            <height>0</height>
            </size>
           </property>
           <property name="maximumSize">
@@ -107,53 +148,17 @@
             <height>16777215</height>
            </size>
           </property>
-          <property name="text">
-           <string> Connect</string>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QToolButton" name="clearButton">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
+          <property name="toolTip">
+           <string>Try connect to chat server</string>
           </property>
           <property name="text">
-           <string> Clear Histories</string>
-          </property>
-          <property name="icon">
-           <iconset resource="../bitcoin.qrc">
-            <normaloff>:/icons/delete</normaloff>:/icons/delete</iconset>
+           <string>  Reconnect  </string>
           </property>
           <property name="iconSize">
            <size>
             <width>18</width>
-            <height>20</height>
+            <height>18</height>
            </size>
-          </property>
-          <property name="toolButtonStyle">
-           <enum>Qt::ToolButtonTextBesideIcon</enum>
           </property>
          </widget>
         </item>
@@ -167,6 +172,12 @@
           <height>26</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -178,7 +189,10 @@
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horzLayout" stretch="0,0">
+     <layout class="QHBoxLayout" name="horzLayout" stretch="0,0,0">
+      <property name="spacing">
+       <number>3</number>
+      </property>
       <property name="sizeConstraint">
        <enum>QLayout::SetDefaultConstraint</enum>
       </property>
@@ -189,7 +203,7 @@
        <number>0</number>
       </property>
       <property name="rightMargin">
-       <number>6</number>
+       <number>0</number>
       </property>
       <property name="bottomMargin">
        <number>4</number>
@@ -199,11 +213,20 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>26</height>
+          <height>24</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>8</pointsize>
+         </font>
         </property>
         <property name="placeholderText">
          <string>Type your message ...</string>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -211,9 +234,12 @@
        <widget class="QToolButton" name="sendButton">
         <property name="minimumSize">
          <size>
-          <width>70</width>
-          <height>26</height>
+          <width>0</width>
+          <height>0</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Send chat message</string>
         </property>
         <property name="text">
          <string>  Send</string>
@@ -224,8 +250,37 @@
         </property>
         <property name="iconSize">
          <size>
-          <width>20</width>
-          <height>20</height>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextBesideIcon</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="clearButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Clear all chat histories</string>
+        </property>
+        <property name="text">
+         <string> Clear Hirtory</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../bitcoin.qrc">
+          <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
          </size>
         </property>
         <property name="toolButtonStyle">

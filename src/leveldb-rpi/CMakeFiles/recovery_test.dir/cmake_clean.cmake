@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/recovery_test.dir/db/recovery_test.cc.o"
+  "CMakeFiles/recovery_test.dir/db/recovery_test.cc.o.d"
   "CMakeFiles/recovery_test.dir/util/testharness.cc.o"
+  "CMakeFiles/recovery_test.dir/util/testharness.cc.o.d"
   "CMakeFiles/recovery_test.dir/util/testutil.cc.o"
+  "CMakeFiles/recovery_test.dir/util/testutil.cc.o.d"
   "recovery_test"
   "recovery_test.pdb"
 )

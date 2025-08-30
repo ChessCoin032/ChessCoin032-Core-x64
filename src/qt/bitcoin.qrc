@@ -26,7 +26,7 @@
         <file alias="editcopy">res/icons/editcopy.png</file>
         <file alias="add">res/icons/add.png</file>
         <file alias="bitcoin_testnet">res/icons/chesscoin-64.png</file>
-		<file alias="toolbar_testnet">res/icons/chesscoin-128.png</file>
+        <file alias="toolbar_testnet">res/icons/chesscoin-128.png</file>
         <file alias="edit">res/icons/edit.png</file>
         <file alias="history">res/icons/history.png</file>
         <file alias="overview">res/icons/overview.png</file>
@@ -59,6 +59,13 @@
         <file alias="up">res/icons/up.png</file>
         <file alias="from">res/icons/from.png</file>
         <file alias="find">res/icons/find.png</file>
+        <file alias="chromium">res/icons/chromium.png</file>
+        <file alias="open">res/icons/open.png</file>
+        <file alias="run">res/icons/run.png</file>
+        <file alias="github">res/icons/github.png</file>
+        <file alias="discord">res/icons/discord.png</file>
+        <file alias="telegram">res/icons/telegram.png</file>
+        <file alias="coingecko">res/icons/coingecko.png</file>		
     </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>

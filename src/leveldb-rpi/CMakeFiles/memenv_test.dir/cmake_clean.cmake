@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/memenv_test.dir/helpers/memenv/memenv_test.cc.o"
+  "CMakeFiles/memenv_test.dir/helpers/memenv/memenv_test.cc.o.d"
   "CMakeFiles/memenv_test.dir/util/testharness.cc.o"
+  "CMakeFiles/memenv_test.dir/util/testharness.cc.o.d"
   "CMakeFiles/memenv_test.dir/util/testutil.cc.o"
+  "CMakeFiles/memenv_test.dir/util/testutil.cc.o.d"
   "memenv_test"
   "memenv_test.pdb"
 )

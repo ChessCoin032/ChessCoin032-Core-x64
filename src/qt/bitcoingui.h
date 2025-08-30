@@ -74,13 +74,16 @@ private:
     AddressBookPage *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
     SignVerifyMessageDialog *signVerifyMessageDialog;
-    QChatWidget *chatPage;
+    QChatWidget *chatPage1;
+#ifdef TWO_CHAT_VERSIONS
+    QChatWidget *chatPage2;
+#endif
     BurnCoinsDialog *burnCoinsPage;
     BlockBrowser *blockBrowser;
 
     QLabel *labelEncryptionIcon;
-    GUIUtil::QHoverLabel *labelNTPTimeIcon;
-    GUIUtil::QClickableLabel *labelStakingIcon;
+    QLabel *labelStakingIcon;
+    GUIUtil::QHoverLabel     *labelNTPTimeIcon;
     GUIUtil::QClickableLabel *labelConnectionsIcon;
     GUIUtil::QClickableLabel *labelBlocksIcon;
     QLabel *progressBarLabel;
@@ -113,12 +116,27 @@ private:
     QAction *chessPlayAction;
     QAction *chessResetAction;
     QAction *chatAction;
+    QAction *chatAction1;
+#ifdef TWO_CHAT_VERSIONS
+    QAction *chatAction2;
+#endif
     QAction *burnCoinsAction;
     QAction *explorerAction;
+
+#ifdef CHROMIUM
+    QAction *browserAction;
+#endif
+
 #ifdef SENDTIMLOCK
     QAction *sendTimelockAction;
 #endif
-    
+
+    QAction *gitLinkAction;
+    QAction *chesscoinLinkAction;
+    QAction *discordLinkAction;
+    QAction *telegramLinkAction;
+    QAction *coingeckoLinkAction;
+
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
     TransactionView *transactionView;
@@ -137,6 +155,13 @@ private:
     void createToolBars();
     /** Create system tray (notification) icon */
     void createTrayIcon();
+#ifdef CHROMIUM
+    /** Kill ChessCoinBrowser Instances */
+    void killAllBrowserInstances();
+    void showBrowserSetupDialog();
+
+    bool isValidChessCoinBrowserPath(const QString &path);
+#endif
 
 public slots:
     /** Set number of connections shown in the UI */
@@ -218,9 +243,17 @@ private slots:
     void onPlayChess();
     void onResetChessEngineJson();
 
-    void gotoChatRoomPage();    
+    void gotoChatRoomPage1();
+#ifdef TWO_CHAT_VERSIONS
+    void gotoChatRoomPage2();
+#endif
     void gotoBurnCoinsPage();
     void gotoBlockBrowser();
+
+#ifdef CHROMIUM
+    void openChessCoinBrowser();
+#endif
+
 #ifdef SENDTIMLOCK
 	void showSendTimelockDialog();
 #endif

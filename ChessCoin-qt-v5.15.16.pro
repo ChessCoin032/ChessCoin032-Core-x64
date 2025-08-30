@@ -1,8 +1,8 @@
 TEMPLATE = app
 TARGET = chesscoin-qt
-VERSION = 1.5.2
+VERSION = 1.5.3
 INCLUDEPATH += src src/json src/qt
-DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE QT_SUPPORTSSL __STDC_FORMAT_MACROS __STDC_LIMIT_MACROS
+DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE QT_SUPPORTSSL __STDC_FORMAT_MACROS __STDC_LIMIT_MACROS TWO_CHAT_VERSIONS
 CONFIG += no_include_pwd
 CONFIG += thread
 CONFIG -= embed_manifest_exe multimedia-wmf
@@ -50,7 +50,7 @@ BDB_INCLUDE_PATH=D:/ChessCoinLibs64/db-6.0.20/build_windows
 BDB_LIB_PATH=D:/ChessCoinLibs64/db-6.0.20/build_windows
 
 OPENSSL_INCLUDE_PATH=D:/ChesscoinLibs64/openssl-3.4.0-static/include
-OPENSSL_LIB_PATH=D:/ChesscoinLibs64/openssl-3.4.0-static
+OPENSSL_LIB_PATH=D:/ChesscoinLibs64/openssl-3.4.0-static/lib64
 
 QRENCODE_INCLUDE_PATH=D:/ChessCoinLibs64/qrencode-4.1.1-static
 QRENCODE_LIB_PATH=D:/ChessCoinLibs64/qrencode-4.1.1-static/.libs
@@ -214,6 +214,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/curlnet.h \
     src/qt/intro.h \
     src/qt/jsonhighlighter.h \
+    src/qt/openbrowserdialog.h \
     src/qt/transactiontablemodel.h \
     src/qt/addresstablemodel.h \
     src/qt/optionsdialog.h \
@@ -320,6 +321,7 @@ HEADERS += src/qt/bitcoingui.h \
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/intro.cpp \
+    src/qt/openbrowserdialog.cpp \
     src/qt/transactiontablemodel.cpp \
     src/qt/addresstablemodel.cpp \
     src/qt/optionsdialog.cpp \
@@ -420,6 +422,7 @@ FORMS += \
     src/qt/forms/chatwidget.ui \
     src/qt/forms/intro.ui \
     src/qt/forms/coincontroldialog.ui \
+    src/qt/forms/openbrowserdialog.ui \
     src/qt/forms/sendcoinsdialog.ui \
     src/qt/forms/addressbookpage.ui \
     src/qt/forms/sendtimelockdialog.ui \
@@ -481,6 +484,8 @@ windows:RC_FILE = src/qt/res/bitcoin-qt.rc
 #    QMAKE_LIBS_QT_ENTRY = -lmingwthrd $$QMAKE_LIBS_QT_ENTRY
 #}
 
+# Windows system libraries MUST come BEFORE OpenSSL
+LIBS += -lcrypt32 -lws2_32 -ladvapi32 -lgdi32 -luser32
 
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
 INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH $$QRDECODE_INCLUDE_PATH $$MINGW_INCLUDE_PATH
@@ -496,7 +501,8 @@ LIBS += -Wl,-Bstatic -lpthread -Wl,-Bdynamic
 
 
 # -lgdi32 has to happen after -lcrypto (see  #681)
-windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32
+windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32 -lcrypt32
+
 
 LIBS += -lboost_system$$BOOST_LIB_SUFFIX -lboost_filesystem$$BOOST_LIB_SUFFIX  -lboost_program_options$$BOOST_LIB_SUFFIX -lboost_thread$$BOOST_LIB_SUFFIX libboost_chrono$$BOOST_LIB_SUFFIX
 

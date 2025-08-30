@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/corruption_test.dir/db/corruption_test.cc.o"
+  "CMakeFiles/corruption_test.dir/db/corruption_test.cc.o.d"
   "CMakeFiles/corruption_test.dir/util/testharness.cc.o"
+  "CMakeFiles/corruption_test.dir/util/testharness.cc.o.d"
   "CMakeFiles/corruption_test.dir/util/testutil.cc.o"
+  "CMakeFiles/corruption_test.dir/util/testutil.cc.o.d"
   "corruption_test"
   "corruption_test.pdb"
 )

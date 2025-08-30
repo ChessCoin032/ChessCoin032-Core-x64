@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/bloom_test.dir/util/bloom_test.cc.o"
+  "CMakeFiles/bloom_test.dir/util/bloom_test.cc.o.d"
   "CMakeFiles/bloom_test.dir/util/testharness.cc.o"
+  "CMakeFiles/bloom_test.dir/util/testharness.cc.o.d"
   "CMakeFiles/bloom_test.dir/util/testutil.cc.o"
+  "CMakeFiles/bloom_test.dir/util/testutil.cc.o.d"
   "bloom_test"
   "bloom_test.pdb"
 )

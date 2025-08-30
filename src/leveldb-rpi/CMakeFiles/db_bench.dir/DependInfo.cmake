@@ -1,30 +1,22 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/db_bench.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/db_bench.dir/db/db_bench.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/histogram.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/db_bench.dir/util/histogram.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/testharness.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/db_bench.dir/util/testharness.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/testutil.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/db_bench.dir/util/testutil.cc.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "LEVELDB_PLATFORM_POSIX=1"
   )
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "include"
-  "."
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/db_bench.cc" "CMakeFiles/db_bench.dir/db/db_bench.cc.o" "gcc" "CMakeFiles/db_bench.dir/db/db_bench.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/histogram.cc" "CMakeFiles/db_bench.dir/util/histogram.cc.o" "gcc" "CMakeFiles/db_bench.dir/util/histogram.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/testharness.cc" "CMakeFiles/db_bench.dir/util/testharness.cc.o" "gcc" "CMakeFiles/db_bench.dir/util/testharness.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/testutil.cc" "CMakeFiles/db_bench.dir/util/testutil.cc.o" "gcc" "CMakeFiles/db_bench.dir/util/testutil.cc.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/DependInfo.cmake"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/leveldb.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

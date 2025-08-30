@@ -1,60 +1,51 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/builder.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/builder.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/c.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/c.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/db_impl.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/db_impl.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/db_iter.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/db_iter.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/dbformat.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/dbformat.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/dumpfile.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/dumpfile.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/filename.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/filename.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/log_reader.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/log_reader.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/log_writer.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/log_writer.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/memtable.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/memtable.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/repair.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/repair.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/table_cache.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/table_cache.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/version_edit.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/version_edit.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/version_set.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/version_set.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/write_batch.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/db/write_batch.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/helpers/memenv/memenv.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/helpers/memenv/memenv.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/table/block.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/table/block.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/table/block_builder.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/table/block_builder.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/table/filter_block.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/table/filter_block.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/table/format.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/table/format.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/table/iterator.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/table/iterator.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/table/merger.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/table/merger.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/table/table.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/table/table.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/table/table_builder.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/table/table_builder.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/table/two_level_iterator.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/arena.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/arena.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/bloom.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/bloom.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/cache.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/cache.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/coding.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/coding.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/comparator.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/comparator.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/crc32c.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/crc32c.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/env.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/env.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/env_posix.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/env_posix.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/filter_policy.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/filter_policy.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/hash.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/hash.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/logging.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/logging.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/options.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/options.cc.o"
-  "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/status.cc" "/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/leveldb.dir/util/status.cc.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "LEVELDB_COMPILE_LIBRARY"
-  "LEVELDB_PLATFORM_POSIX=1"
   )
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "include"
-  "."
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/builder.cc" "CMakeFiles/leveldb.dir/db/builder.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/builder.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/c.cc" "CMakeFiles/leveldb.dir/db/c.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/c.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/db_impl.cc" "CMakeFiles/leveldb.dir/db/db_impl.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/db_impl.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/db_iter.cc" "CMakeFiles/leveldb.dir/db/db_iter.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/db_iter.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/dbformat.cc" "CMakeFiles/leveldb.dir/db/dbformat.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/dbformat.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/dumpfile.cc" "CMakeFiles/leveldb.dir/db/dumpfile.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/dumpfile.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/filename.cc" "CMakeFiles/leveldb.dir/db/filename.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/filename.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/log_reader.cc" "CMakeFiles/leveldb.dir/db/log_reader.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/log_reader.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/log_writer.cc" "CMakeFiles/leveldb.dir/db/log_writer.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/log_writer.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/memtable.cc" "CMakeFiles/leveldb.dir/db/memtable.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/memtable.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/repair.cc" "CMakeFiles/leveldb.dir/db/repair.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/repair.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/table_cache.cc" "CMakeFiles/leveldb.dir/db/table_cache.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/table_cache.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/version_edit.cc" "CMakeFiles/leveldb.dir/db/version_edit.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/version_edit.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/version_set.cc" "CMakeFiles/leveldb.dir/db/version_set.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/version_set.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/db/write_batch.cc" "CMakeFiles/leveldb.dir/db/write_batch.cc.o" "gcc" "CMakeFiles/leveldb.dir/db/write_batch.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/helpers/memenv/memenv.cc" "CMakeFiles/leveldb.dir/helpers/memenv/memenv.cc.o" "gcc" "CMakeFiles/leveldb.dir/helpers/memenv/memenv.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/table/block.cc" "CMakeFiles/leveldb.dir/table/block.cc.o" "gcc" "CMakeFiles/leveldb.dir/table/block.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/table/block_builder.cc" "CMakeFiles/leveldb.dir/table/block_builder.cc.o" "gcc" "CMakeFiles/leveldb.dir/table/block_builder.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/table/filter_block.cc" "CMakeFiles/leveldb.dir/table/filter_block.cc.o" "gcc" "CMakeFiles/leveldb.dir/table/filter_block.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/table/format.cc" "CMakeFiles/leveldb.dir/table/format.cc.o" "gcc" "CMakeFiles/leveldb.dir/table/format.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/table/iterator.cc" "CMakeFiles/leveldb.dir/table/iterator.cc.o" "gcc" "CMakeFiles/leveldb.dir/table/iterator.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/table/merger.cc" "CMakeFiles/leveldb.dir/table/merger.cc.o" "gcc" "CMakeFiles/leveldb.dir/table/merger.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/table/table.cc" "CMakeFiles/leveldb.dir/table/table.cc.o" "gcc" "CMakeFiles/leveldb.dir/table/table.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/table/table_builder.cc" "CMakeFiles/leveldb.dir/table/table_builder.cc.o" "gcc" "CMakeFiles/leveldb.dir/table/table_builder.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/table/two_level_iterator.cc" "CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o" "gcc" "CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/arena.cc" "CMakeFiles/leveldb.dir/util/arena.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/arena.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/bloom.cc" "CMakeFiles/leveldb.dir/util/bloom.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/bloom.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/cache.cc" "CMakeFiles/leveldb.dir/util/cache.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/cache.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/coding.cc" "CMakeFiles/leveldb.dir/util/coding.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/coding.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/comparator.cc" "CMakeFiles/leveldb.dir/util/comparator.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/comparator.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/crc32c.cc" "CMakeFiles/leveldb.dir/util/crc32c.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/crc32c.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/env.cc" "CMakeFiles/leveldb.dir/util/env.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/env.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/env_posix.cc" "CMakeFiles/leveldb.dir/util/env_posix.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/env_posix.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/filter_policy.cc" "CMakeFiles/leveldb.dir/util/filter_policy.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/filter_policy.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/hash.cc" "CMakeFiles/leveldb.dir/util/hash.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/hash.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/logging.cc" "CMakeFiles/leveldb.dir/util/logging.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/logging.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/options.cc" "CMakeFiles/leveldb.dir/util/options.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/options.cc.o.d"
+  "/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/util/status.cc" "CMakeFiles/leveldb.dir/util/status.cc.o" "gcc" "CMakeFiles/leveldb.dir/util/status.cc.o.d"
   )
 
 # Targets to which this target links.

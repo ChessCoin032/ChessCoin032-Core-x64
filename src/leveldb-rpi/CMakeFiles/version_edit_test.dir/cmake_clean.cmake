@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/version_edit_test.dir/db/version_edit_test.cc.o"
+  "CMakeFiles/version_edit_test.dir/db/version_edit_test.cc.o.d"
   "CMakeFiles/version_edit_test.dir/util/testharness.cc.o"
+  "CMakeFiles/version_edit_test.dir/util/testharness.cc.o.d"
   "CMakeFiles/version_edit_test.dir/util/testutil.cc.o"
+  "CMakeFiles/version_edit_test.dir/util/testutil.cc.o.d"
   "version_edit_test"
   "version_edit_test.pdb"
 )

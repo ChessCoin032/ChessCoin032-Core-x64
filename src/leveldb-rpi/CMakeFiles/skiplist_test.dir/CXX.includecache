@@ -6,31 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/skiplist_test.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/skiplist_test.cc
 db/skiplist.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/db/skiplist.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/db/skiplist.h
 atomic
 -
 set
 -
 leveldb/env.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/leveldb/env.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/leveldb/env.h
 port/port.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/port/port.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/port/port.h
 port/thread_annotations.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/port/thread_annotations.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/port/thread_annotations.h
 util/arena.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/util/arena.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/util/arena.h
 util/hash.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/util/hash.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/util/hash.h
 util/random.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/util/random.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/util/random.h
 util/testharness.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/db/util/testharness.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/db/util/testharness.h
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/testharness.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/testharness.cc
 util/testharness.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/testharness.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/testharness.h
 stdlib.h
 -
 sys/stat.h
@@ -42,13 +42,13 @@ string
 vector
 -
 leveldb/env.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/leveldb/env.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/leveldb/env.h
 
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/testutil.cc
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/testutil.cc
 util/testutil.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/testutil.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/testutil.h
 util/random.h
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/util/util/random.h
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/util/util/random.h
 
 db/skiplist.h
 atomic

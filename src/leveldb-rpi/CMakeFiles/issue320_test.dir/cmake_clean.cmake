@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/issue320_test.dir/issues/issue320_test.cc.o"
+  "CMakeFiles/issue320_test.dir/issues/issue320_test.cc.o.d"
   "CMakeFiles/issue320_test.dir/util/testharness.cc.o"
+  "CMakeFiles/issue320_test.dir/util/testharness.cc.o.d"
   "CMakeFiles/issue320_test.dir/util/testutil.cc.o"
+  "CMakeFiles/issue320_test.dir/util/testutil.cc.o.d"
   "issue320_test"
   "issue320_test.pdb"
 )

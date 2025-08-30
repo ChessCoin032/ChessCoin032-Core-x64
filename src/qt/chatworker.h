@@ -10,6 +10,8 @@ class ChatWorker : public QObject
     Q_OBJECT
 public:
     explicit ChatWorker(QObject *parent = nullptr);
+    ~ChatWorker();
+
     void connectToServer(const QString &serverIp, quint16 port);
 
 signals:

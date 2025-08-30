@@ -1,63 +1,81 @@
 Determining if the function crc32c_value exists in the crc32c failed with the following output:
-Change Dir: /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_58b54/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_58b54.dir/build.make CMakeFiles/cmTC_58b54.dir/build
-gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_58b54.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=crc32c_value -std=c11 -o CMakeFiles/cmTC_58b54.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.18/Modules/CheckFunctionExists.c
-Linking C executable cmTC_58b54
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_58b54.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=crc32c_value CMakeFiles/cmTC_58b54.dir/CheckFunctionExists.c.o -o cmTC_58b54  -lcrc32c 
+Run Build Command(s):/usr/bin/gmake cmTC_d8f8a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d8f8a.dir/build.make CMakeFiles/cmTC_d8f8a.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d8f8a.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=crc32c_value -std=c11 -o CMakeFiles/cmTC_d8f8a.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d8f8a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8f8a.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=crc32c_value CMakeFiles/cmTC_d8f8a.dir/CheckFunctionExists.c.o -o cmTC_d8f8a  -lcrc32c 
 /usr/bin/ld: cannot find -lcrc32c
 collect2: error: ld returned 1 exit status
-gmake[1]: *** [CMakeFiles/cmTC_58b54.dir/build.make:106: cmTC_58b54] Error 1
-gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-gmake: *** [Makefile:140: cmTC_58b54/fast] Error 2
+gmake[1]: *** [CMakeFiles/cmTC_d8f8a.dir/build.make:106: cmTC_d8f8a] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_d8f8a/fast] Error 2
+
+
+
+Determining if the function snappy_compress exists in the snappy failed with the following output:
+Change Dir: /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_bc756/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bc756.dir/build.make CMakeFiles/cmTC_bc756.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bc756.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=snappy_compress -std=c11 -o CMakeFiles/cmTC_bc756.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_bc756
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc756.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=snappy_compress CMakeFiles/cmTC_bc756.dir/CheckFunctionExists.c.o -o cmTC_bc756  -lsnappy 
+/usr/bin/ld: cannot find -lsnappy
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_bc756.dir/build.make:106: cmTC_bc756] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_bc756/fast] Error 2
 
 
 
 Determining if the function malloc exists in the tcmalloc failed with the following output:
-Change Dir: /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_de2d5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_de2d5.dir/build.make CMakeFiles/cmTC_de2d5.dir/build
-gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_de2d5.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=malloc -std=c11 -o CMakeFiles/cmTC_de2d5.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.18/Modules/CheckFunctionExists.c
-<command-line>: warning: conflicting types for built-in function ‘malloc’; expected ‘void *(unsigned int)’ [-Wbuiltin-declaration-mismatch]
+Run Build Command(s):/usr/bin/gmake cmTC_c6dc8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c6dc8.dir/build.make CMakeFiles/cmTC_c6dc8.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c6dc8.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=malloc -std=c11 -o CMakeFiles/cmTC_c6dc8.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.18/Modules/CheckFunctionExists.c
+<command-line>: warning: conflicting types for built-in function ‘malloc’; expected ‘void *(long unsigned int)’ [-Wbuiltin-declaration-mismatch]
 /usr/share/cmake-3.18/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro ‘CHECK_FUNCTION_EXISTS’
     7 |   CHECK_FUNCTION_EXISTS(void);
       |   ^~~~~~~~~~~~~~~~~~~~~
 /usr/share/cmake-3.18/Modules/CheckFunctionExists.c:1:1: note: ‘malloc’ is declared in header ‘<stdlib.h>’
   +++ |+#include <stdlib.h>
     1 | #ifdef CHECK_FUNCTION_EXISTS
-Linking C executable cmTC_de2d5
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de2d5.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=malloc CMakeFiles/cmTC_de2d5.dir/CheckFunctionExists.c.o -o cmTC_de2d5  -ltcmalloc 
+Linking C executable cmTC_c6dc8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c6dc8.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=malloc CMakeFiles/cmTC_c6dc8.dir/CheckFunctionExists.c.o -o cmTC_c6dc8  -ltcmalloc 
 /usr/bin/ld: cannot find -ltcmalloc
 collect2: error: ld returned 1 exit status
-gmake[1]: *** [CMakeFiles/cmTC_de2d5.dir/build.make:106: cmTC_de2d5] Error 1
-gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-gmake: *** [Makefile:140: cmTC_de2d5/fast] Error 2
+gmake[1]: *** [CMakeFiles/cmTC_c6dc8.dir/build.make:106: cmTC_c6dc8] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_c6dc8/fast] Error 2
 
 
 
 Determining if the F_FULLFSYNC exist failed with the following output:
-Change Dir: /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_b6f66/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b6f66.dir/build.make CMakeFiles/cmTC_b6f66.dir/build
-gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_b6f66.dir/CheckSymbolExists.cxx.o
-/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_b6f66.dir/CheckSymbolExists.cxx.o -c /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘F_FULLFSYNC’ was not declared in this scope
+Run Build Command(s):/usr/bin/gmake cmTC_30845/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_30845.dir/build.make CMakeFiles/cmTC_30845.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_30845.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_30845.dir/CheckSymbolExists.cxx.o -c /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘F_FULLFSYNC’ was not declared in this scope
     8 |   return ((int*)(&F_FULLFSYNC))[argc];
       |                   ^~~~~~~~~~~
-gmake[1]: *** [CMakeFiles/cmTC_b6f66.dir/build.make:85: CMakeFiles/cmTC_b6f66.dir/CheckSymbolExists.cxx.o] Error 1
-gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-gmake: *** [Makefile:140: cmTC_b6f66/fast] Error 2
+gmake[1]: *** [CMakeFiles/cmTC_30845.dir/build.make:85: CMakeFiles/cmTC_30845.dir/CheckSymbolExists.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_30845/fast] Error 2
 
 
-File /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+File /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
 /* */
 #include <fcntl.h>
 
@@ -72,28 +90,28 @@ int main(int argc, char** argv)
 #endif
 }
 Performing C++ SOURCE FILE Test HAVE_CLANG_THREAD_SAFETY failed with the following output:
-Change Dir: /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_ffda6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_ffda6.dir/build.make CMakeFiles/cmTC_ffda6.dir/build
-gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_ffda6.dir/src.cxx.o
-/usr/bin/c++   -DHAVE_CLANG_THREAD_SAFETY -Werror -std=c++11 -o CMakeFiles/cmTC_ffda6.dir/src.cxx.o -c /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp/src.cxx
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp/src.cxx:2:34: error: ‘lockable’ attribute directive ignored [-Werror=attributes]
+Run Build Command(s):/usr/bin/gmake cmTC_e24cf/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e24cf.dir/build.make CMakeFiles/cmTC_e24cf.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e24cf.dir/src.cxx.o
+/usr/bin/c++   -DHAVE_CLANG_THREAD_SAFETY -Werror -std=c++11 -o CMakeFiles/cmTC_e24cf.dir/src.cxx.o -c /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp/src.cxx
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp/src.cxx:2:34: error: ‘lockable’ attribute directive ignored [-Werror=attributes]
     2 | struct __attribute__((lockable)) Lock {
       |                                  ^~~~
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp/src.cxx:3:59: error: ‘exclusive_lock_function’ attribute directive ignored [-Werror=attributes]
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp/src.cxx:3:59: error: ‘exclusive_lock_function’ attribute directive ignored [-Werror=attributes]
     3 |   void Acquire() __attribute__((exclusive_lock_function()));
       |                                                           ^
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp/src.cxx:4:51: error: ‘unlock_function’ attribute directive ignored [-Werror=attributes]
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp/src.cxx:4:51: error: ‘unlock_function’ attribute directive ignored [-Werror=attributes]
     4 |   void Release() __attribute__((unlock_function()));
       |                                                   ^
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp/src.cxx:8:46: error: ‘guarded_by’ attribute directive ignored [-Werror=attributes]
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp/src.cxx:8:46: error: ‘guarded_by’ attribute directive ignored [-Werror=attributes]
     8 |   int data_ __attribute__((guarded_by(lock_)));
       |                                              ^
 cc1plus: all warnings being treated as errors
-gmake[1]: *** [CMakeFiles/cmTC_ffda6.dir/build.make:85: CMakeFiles/cmTC_ffda6.dir/src.cxx.o] Error 1
-gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-gmake: *** [Makefile:140: cmTC_ffda6/fast] Error 2
+gmake[1]: *** [CMakeFiles/cmTC_e24cf.dir/build.make:85: CMakeFiles/cmTC_e24cf.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_e24cf/fast] Error 2
 
 
 Source file was:
@@ -109,24 +127,24 @@ struct ThreadSafeType {
 int main() { return 0; }
 
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_5de09/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5de09.dir/build.make CMakeFiles/cmTC_5de09.dir/build
-gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_5de09.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -std=c11 -o CMakeFiles/cmTC_5de09.dir/src.c.o -c /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_5de09
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5de09.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD CMakeFiles/cmTC_5de09.dir/src.c.o -o cmTC_5de09 
-/usr/bin/ld: CMakeFiles/cmTC_5de09.dir/src.c.o: in function `main':
-src.c:(.text+0x40): undefined reference to `pthread_create'
-/usr/bin/ld: src.c:(.text+0x4c): undefined reference to `pthread_detach'
-/usr/bin/ld: src.c:(.text+0x58): undefined reference to `pthread_cancel'
-/usr/bin/ld: src.c:(.text+0x68): undefined reference to `pthread_join'
+Run Build Command(s):/usr/bin/gmake cmTC_816c2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_816c2.dir/build.make CMakeFiles/cmTC_816c2.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_816c2.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -std=c11 -o CMakeFiles/cmTC_816c2.dir/src.c.o -c /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_816c2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_816c2.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD CMakeFiles/cmTC_816c2.dir/src.c.o -o cmTC_816c2 
+/usr/bin/ld: CMakeFiles/cmTC_816c2.dir/src.c.o: in function `main':
+src.c:(.text+0x34): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x3c): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x44): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x50): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-gmake[1]: *** [CMakeFiles/cmTC_5de09.dir/build.make:106: cmTC_5de09] Error 1
-gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-gmake: *** [Makefile:140: cmTC_5de09/fast] Error 2
+gmake[1]: *** [CMakeFiles/cmTC_816c2.dir/build.make:106: cmTC_816c2] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_816c2/fast] Error 2
 
 
 Source file was:
@@ -151,37 +169,55 @@ int main(void)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_44ba8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_44ba8.dir/build.make CMakeFiles/cmTC_44ba8.dir/build
-gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_44ba8.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=c11 -o CMakeFiles/cmTC_44ba8.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.18/Modules/CheckFunctionExists.c
-Linking C executable cmTC_44ba8
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_44ba8.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_44ba8.dir/CheckFunctionExists.c.o -o cmTC_44ba8  -lpthreads 
+Run Build Command(s):/usr/bin/gmake cmTC_59026/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_59026.dir/build.make CMakeFiles/cmTC_59026.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_59026.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -std=c11 -o CMakeFiles/cmTC_59026.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_59026
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59026.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_59026.dir/CheckFunctionExists.c.o -o cmTC_59026  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-gmake[1]: *** [CMakeFiles/cmTC_44ba8.dir/build.make:106: cmTC_44ba8] Error 1
-gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-gmake: *** [Makefile:140: cmTC_44ba8/fast] Error 2
+gmake[1]: *** [CMakeFiles/cmTC_59026.dir/build.make:106: cmTC_59026] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_59026/fast] Error 2
+
+
+
+Determining if the function sqlite3_open exists in the sqlite3 failed with the following output:
+Change Dir: /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_34f7f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_34f7f.dir/build.make CMakeFiles/cmTC_34f7f.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_34f7f.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sqlite3_open -std=c11 -o CMakeFiles/cmTC_34f7f.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.18/Modules/CheckFunctionExists.c
+Linking C executable cmTC_34f7f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_34f7f.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=sqlite3_open CMakeFiles/cmTC_34f7f.dir/CheckFunctionExists.c.o -o cmTC_34f7f  -lsqlite3 
+/usr/bin/ld: cannot find -lsqlite3
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_34f7f.dir/build.make:106: cmTC_34f7f] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_34f7f/fast] Error 2
 
 
 
 Performing C++ SOURCE FILE Test HAVE_KYOTOCABINET failed with the following output:
-Change Dir: /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_6b9a2/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6b9a2.dir/build.make CMakeFiles/cmTC_6b9a2.dir/build
-gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_6b9a2.dir/src.cxx.o
-/usr/bin/c++   -DHAVE_KYOTOCABINET -std=c++11 -o CMakeFiles/cmTC_6b9a2.dir/src.cxx.o -c /home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp/src.cxx
-/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp/src.cxx:2:10: fatal error: kcpolydb.h: No such file or directory
+Run Build Command(s):/usr/bin/gmake cmTC_d2c8f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d2c8f.dir/build.make CMakeFiles/cmTC_d2c8f.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d2c8f.dir/src.cxx.o
+/usr/bin/c++   -DHAVE_KYOTOCABINET -std=c++11 -o CMakeFiles/cmTC_d2c8f.dir/src.cxx.o -c /home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp/src.cxx
+/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp/src.cxx:2:10: fatal error: kcpolydb.h: No such file or directory
     2 | #include <kcpolydb.h>
       |          ^~~~~~~~~~~~
 compilation terminated.
-gmake[1]: *** [CMakeFiles/cmTC_6b9a2.dir/build.make:85: CMakeFiles/cmTC_6b9a2.dir/src.cxx.o] Error 1
-gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/Projects/Chesscoin-Dev-raspberry/src/leveldb/CMakeFiles/CMakeTmp'
-gmake: *** [Makefile:140: cmTC_6b9a2/fast] Error 2
+gmake[1]: *** [CMakeFiles/cmTC_d2c8f.dir/build.make:85: CMakeFiles/cmTC_d2c8f.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/BlockChain/3rdParty/leveldb-1.22/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_d2c8f/fast] Error 2
 
 
 Source file was:
@@ -194,3 +230,177 @@ int main() {
   return 0;
 }
   
+Determining if the function crc32c_value exists in the crc32c failed with the following output:
+Change Dir: /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-JILeAj
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d438e/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d438e.dir/build.make CMakeFiles/cmTC_d438e.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-JILeAj'
+Building C object CMakeFiles/cmTC_d438e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=crc32c_value -std=c11 -o CMakeFiles/cmTC_d438e.dir/CheckFunctionExists.c.o -c /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-JILeAj/CheckFunctionExists.c
+Linking C executable cmTC_d438e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d438e.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=crc32c_value CMakeFiles/cmTC_d438e.dir/CheckFunctionExists.c.o -o cmTC_d438e  -lcrc32c 
+/usr/bin/ld: cannot find -lcrc32c: No such file or directory
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_d438e.dir/build.make:99: cmTC_d438e] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-JILeAj'
+gmake: *** [Makefile:127: cmTC_d438e/fast] Error 2
+
+
+
+Determining if the function snappy_compress exists in the snappy failed with the following output:
+Change Dir: /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-jNelJM
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_36b58/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_36b58.dir/build.make CMakeFiles/cmTC_36b58.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-jNelJM'
+Building C object CMakeFiles/cmTC_36b58.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=snappy_compress -std=c11 -o CMakeFiles/cmTC_36b58.dir/CheckFunctionExists.c.o -c /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-jNelJM/CheckFunctionExists.c
+Linking C executable cmTC_36b58
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_36b58.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=snappy_compress CMakeFiles/cmTC_36b58.dir/CheckFunctionExists.c.o -o cmTC_36b58  -lsnappy 
+/usr/bin/ld: cannot find -lsnappy: No such file or directory
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_36b58.dir/build.make:99: cmTC_36b58] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-jNelJM'
+gmake: *** [Makefile:127: cmTC_36b58/fast] Error 2
+
+
+
+Determining if the function malloc exists in the tcmalloc failed with the following output:
+Change Dir: /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-oCmWgT
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_70cf7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_70cf7.dir/build.make CMakeFiles/cmTC_70cf7.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-oCmWgT'
+Building C object CMakeFiles/cmTC_70cf7.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=malloc -std=c11 -o CMakeFiles/cmTC_70cf7.dir/CheckFunctionExists.c.o -c /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-oCmWgT/CheckFunctionExists.c
+<command-line>: warning: conflicting types for built-in function ‘malloc’; expected ‘void *(long unsigned int)’ [-Wbuiltin-declaration-mismatch]
+/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-oCmWgT/CheckFunctionExists.c:7:3: note: in expansion of macro ‘CHECK_FUNCTION_EXISTS’
+    7 |   CHECK_FUNCTION_EXISTS(void);
+      |   ^~~~~~~~~~~~~~~~~~~~~
+/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-oCmWgT/CheckFunctionExists.c:1:1: note: ‘malloc’ is declared in header ‘<stdlib.h>’
+  +++ |+#include <stdlib.h>
+    1 | #ifdef CHECK_FUNCTION_EXISTS
+Linking C executable cmTC_70cf7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_70cf7.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=malloc CMakeFiles/cmTC_70cf7.dir/CheckFunctionExists.c.o -o cmTC_70cf7  -ltcmalloc 
+/usr/bin/ld: cannot find -ltcmalloc: No such file or directory
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_70cf7.dir/build.make:99: cmTC_70cf7] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-oCmWgT'
+gmake: *** [Makefile:127: cmTC_70cf7/fast] Error 2
+
+
+
+Determining if the F_FULLFSYNC exist failed with the following output:
+Change Dir: /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-MQw9Wu
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_261a6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_261a6.dir/build.make CMakeFiles/cmTC_261a6.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-MQw9Wu'
+Building CXX object CMakeFiles/cmTC_261a6.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_261a6.dir/CheckSymbolExists.cxx.o -c /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-MQw9Wu/CheckSymbolExists.cxx
+/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-MQw9Wu/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-MQw9Wu/CheckSymbolExists.cxx:8:19: error: ‘F_FULLFSYNC’ was not declared in this scope
+    8 |   return ((int*)(&F_FULLFSYNC))[argc];
+      |                   ^~~~~~~~~~~
+gmake[1]: *** [CMakeFiles/cmTC_261a6.dir/build.make:78: CMakeFiles/cmTC_261a6.dir/CheckSymbolExists.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-MQw9Wu'
+gmake: *** [Makefile:127: cmTC_261a6/fast] Error 2
+
+
+File CheckSymbolExists.cxx:
+/* */
+#include <fcntl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef F_FULLFSYNC
+  return ((int*)(&F_FULLFSYNC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C++ SOURCE FILE Test HAVE_CLANG_THREAD_SAFETY failed with the following output:
+Change Dir: /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-zjyolC
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d0888/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d0888.dir/build.make CMakeFiles/cmTC_d0888.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-zjyolC'
+Building CXX object CMakeFiles/cmTC_d0888.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_CLANG_THREAD_SAFETY  -Werror -std=c++11 -o CMakeFiles/cmTC_d0888.dir/src.cxx.o -c /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-zjyolC/src.cxx
+/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-zjyolC/src.cxx:2:34: error: ‘lockable’ attribute directive ignored [-Werror=attributes]
+    2 | struct __attribute__((lockable)) Lock {
+      |                                  ^~~~
+/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-zjyolC/src.cxx:3:59: error: ‘exclusive_lock_function’ attribute directive ignored [-Werror=attributes]
+    3 |   void Acquire() __attribute__((exclusive_lock_function()));
+      |                                                           ^
+/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-zjyolC/src.cxx:4:51: error: ‘unlock_function’ attribute directive ignored [-Werror=attributes]
+    4 |   void Release() __attribute__((unlock_function()));
+      |                                                   ^
+/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-zjyolC/src.cxx:8:46: error: ‘guarded_by’ attribute directive ignored [-Werror=attributes]
+    8 |   int data_ __attribute__((guarded_by(lock_)));
+      |                                              ^
+cc1plus: all warnings being treated as errors
+gmake[1]: *** [CMakeFiles/cmTC_d0888.dir/build.make:78: CMakeFiles/cmTC_d0888.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-zjyolC'
+gmake: *** [Makefile:127: cmTC_d0888/fast] Error 2
+
+
+Source file was:
+
+struct __attribute__((lockable)) Lock {
+  void Acquire() __attribute__((exclusive_lock_function()));
+  void Release() __attribute__((unlock_function()));
+};
+struct ThreadSafeType {
+  Lock lock_;
+  int data_ __attribute__((guarded_by(lock_)));
+};
+int main() { return 0; }
+
+
+Determining if the function sqlite3_open exists in the sqlite3 failed with the following output:
+Change Dir: /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-17TZvC
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_659da/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_659da.dir/build.make CMakeFiles/cmTC_659da.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-17TZvC'
+Building C object CMakeFiles/cmTC_659da.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sqlite3_open -std=c11 -o CMakeFiles/cmTC_659da.dir/CheckFunctionExists.c.o -c /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-17TZvC/CheckFunctionExists.c
+Linking C executable cmTC_659da
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_659da.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=sqlite3_open CMakeFiles/cmTC_659da.dir/CheckFunctionExists.c.o -o cmTC_659da  -lsqlite3 
+/usr/bin/ld: cannot find -lsqlite3: No such file or directory
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_659da.dir/build.make:99: cmTC_659da] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-17TZvC'
+gmake: *** [Makefile:127: cmTC_659da/fast] Error 2
+
+
+
+Performing C++ SOURCE FILE Test HAVE_KYOTOCABINET failed with the following output:
+Change Dir: /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-Jdz4EU
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c8259/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c8259.dir/build.make CMakeFiles/cmTC_c8259.dir/build
+gmake[1]: Entering directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-Jdz4EU'
+Building CXX object CMakeFiles/cmTC_c8259.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_KYOTOCABINET  -std=c++11 -o CMakeFiles/cmTC_c8259.dir/src.cxx.o -c /home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-Jdz4EU/src.cxx
+/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-Jdz4EU/src.cxx:2:10: fatal error: kcpolydb.h: No such file or directory
+    2 | #include <kcpolydb.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_c8259.dir/build.make:78: CMakeFiles/cmTC_c8259.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/pi/Workspace/Blockchain/Chesscoin-Dev-raspberry-pi5/src/leveldb-rpi/CMakeFiles/CMakeScratch/TryCompile-Jdz4EU'
+gmake: *** [Makefile:127: cmTC_c8259/fast] Error 2
+
+
+Source file was:
+
+#include <kcpolydb.h>
+
+int main() {
+  kyotocabinet::TreeDB* db = new kyotocabinet::TreeDB();
+  delete db;
+  return 0;
+}
+  
+

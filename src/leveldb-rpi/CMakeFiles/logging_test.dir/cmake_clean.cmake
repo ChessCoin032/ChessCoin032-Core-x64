@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/logging_test.dir/util/logging_test.cc.o"
+  "CMakeFiles/logging_test.dir/util/logging_test.cc.o.d"
   "CMakeFiles/logging_test.dir/util/testharness.cc.o"
+  "CMakeFiles/logging_test.dir/util/testharness.cc.o.d"
   "CMakeFiles/logging_test.dir/util/testutil.cc.o"
+  "CMakeFiles/logging_test.dir/util/testutil.cc.o.d"
   "logging_test"
   "logging_test.pdb"
 )

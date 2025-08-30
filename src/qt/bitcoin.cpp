@@ -176,12 +176,12 @@ static bool copyIconToLocalShare(const QString& iconpath) {
         boost::filesystem::create_directories(destDir); // Ensure the directory exists
 
         // Check if the icon already exists at the destination
-        if (!boost::filesystem::exists(destination)) {
+        //if (!boost::filesystem::exists(destination)) {
             // Copy the icon file, overwriting if it already exists
             boost::filesystem::copy_file(source, destination, boost::filesystem::copy_option::overwrite_if_exists);
             // Update the icon cache
             std::system("gtk-update-icon-cache ~/.local/share/icons/hicolor");
-        }
+        //}
 
         return true;
     } catch (const std::exception &e) {
@@ -193,6 +193,9 @@ static bool copyIconToLocalShare(const QString& iconpath) {
 #ifndef BITCOIN_QT_TEST
 int main(int argc, char *argv[])
 {
+    //qputenv("QT_QPA_PLATFORM", QByteArray("wayland"));
+    //qputenv("QT_WAYLAND_DISABLE_WINDOWDECORATION", QByteArray("1"));
+
     qRegisterMetaType<int64_t>("int64_t");
 
     // Do this early as we don't want to bother initializing if we are just calling IPC
@@ -218,6 +221,8 @@ int main(int argc, char *argv[])
         app.setApplicationName("chesscoin-qt-testnet");
     else
         app.setApplicationName("chesscoin-qt");
+	
+    app.setWindowIcon(QIcon(":icons/bitcoin"));
 
 #ifdef WAYLANDMODE
     QString iconPaths[] = {
@@ -290,7 +295,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    QSplashScreen splash(QPixmap(":/images/splash"), 0);
+    GUIUtil::QMySplashScreen splash(QPixmap(":/images/splash"), Qt::red);
+
     if (GetBoolArg("-splash", true) && !GetBoolArg("-min"))
     {
         splash.setWindowTitle("ChessCoin 0.32%");
