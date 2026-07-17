@@ -388,7 +388,7 @@ void CAddrMan::Attempt_(const CService &addr, int64_t nTime)
 
 CAddress CAddrMan::Select_(int nUnkBias)
 {
-    if (size() == 0)
+if (size() == 0)
         return CAddress();
 
     double nCorTried = sqrt(nTried) * (100.0 - nUnkBias);
@@ -397,13 +397,13 @@ CAddress CAddrMan::Select_(int nUnkBias)
     {
         // use a tried node
         double fChanceFactor = 1.0;
-        while(1)
+        for (int nTries = 0; nTries < 40000; nTries++)
         {
             int nKBucket = GetRandInt(vvTried.size());
             std::vector<int> &vTried = vvTried[nKBucket];
             if (vTried.size() == 0) continue;
             int nPos = GetRandInt(vTried.size());
-            assert(mapInfo.count(vTried[nPos]) == 1);
+
             CAddrInfo &info = mapInfo[vTried[nPos]];
             if (GetRandInt(1<<30) < fChanceFactor*info.GetChance()*(1<<30))
                 return info;
@@ -412,22 +412,22 @@ CAddress CAddrMan::Select_(int nUnkBias)
     } else {
         // use a new node
         double fChanceFactor = 1.0;
-        while(1)
+        for (int nTries = 0; nTries < 40000; nTries++)
         {
             int nUBucket = GetRandInt(vvNew.size());
             std::set<int> &vNew = vvNew[nUBucket];
             if (vNew.size() == 0) continue;
             int nPos = GetRandInt(vNew.size());
-            std::set<int>::iterator it = vNew.begin();
-            while (nPos--)
-                it++;
-            assert(mapInfo.count(*it) == 1);
+            auto it = std::next(vNew.begin(), nPos);
+
             CAddrInfo &info = mapInfo[*it];
             if (GetRandInt(1<<30) < fChanceFactor*info.GetChance()*(1<<30))
                 return info;
             fChanceFactor *= 1.2;
         }
     }
+	
+    return CAddress();
 }
 
 #ifdef DEBUG_ADDRMAN
