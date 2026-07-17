@@ -64,7 +64,7 @@
 
 #include "guiutil.h"
 
-#include <qzxing.h>
+#include <QZXing.h>
 
 #define FONT_SIZE 12
 #define QCAMERA_CAPTURE_MODE "Image Mode"
