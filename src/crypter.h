@@ -4,6 +4,7 @@
 #ifndef __CRYPTER_H__
 #define __CRYPTER_H__
 
+#include <openssl/crypto.h>   // for OPENSSL_cleanse
 #include "allocators.h" /* for SecureString */
 #include "key.h"
 #include "serialize.h"

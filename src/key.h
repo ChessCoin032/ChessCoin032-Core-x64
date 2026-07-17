@@ -13,7 +13,15 @@
 #include "uint256.h"
 #include "util.h"
 
-#include <openssl/ec.h> // for EC_KEY definition
+// NOTE (v1.5.4, point #2): ECDSA signing/verification has been migrated from
+// OpenSSL to libsecp256k1. The class interface of CKey/CPubKey is UNCHANGED so
+// that no call sites need modification. Only the crypto engine underneath
+// changed. OpenSSL is still used elsewhere in the tree for hashing (SHA256 /
+// RIPEMD160) and for the RNG (RAND_bytes); that is intentional and out of
+// scope for this change.
+//
+// The secp256k1 library context must be created once at startup with
+// ECC_Start() and destroyed at shutdown with ECC_Stop() (see init.cpp).
 
 // secp160k1
 // const unsigned int PRIVATE_KEY_SIZE = 192;
@@ -105,15 +113,24 @@ typedef std::vector<unsigned char, secure_allocator<unsigned char> > CPrivKey;
 // CSecret is a serialization of just the secret parameter (32 bytes)
 typedef std::vector<unsigned char, secure_allocator<unsigned char> > CSecret;
 
-/** An encapsulated OpenSSL Elliptic Curve key (public and/or private) */
+/** An encapsulated ECDSA key (public and/or private), backed by libsecp256k1. */
 class CKey
 {
-protected:
-    EC_KEY* pkey;
+private:
+    // Whether this object currently holds a (public, and possibly private) key.
     bool fSet;
+    // Whether the associated public key is compressed.
     bool fCompressedPubKey;
+    // Whether vch[] below holds a valid private key.
+    bool fHavePrivate;
+    // The 32-byte private key (only meaningful when fHavePrivate is true).
+    unsigned char vch[32];
+    // The serialized public key (33 or 65 bytes; valid when fSet is true).
+    std::vector<unsigned char> vchPubKey;
 
     void SetCompressedPubKey();
+    // Recompute and cache vchPubKey from vch[] using the current compression flag.
+    bool ComputePubKey();
 
 public:
 
@@ -159,7 +176,13 @@ public:
     static bool CheckSignatureElement(const unsigned char *vch, int len, bool half);
 };
 
-/** Check that required EC support is available at runtime */
+/** Initialize and destroy the libsecp256k1 context. Call ECC_Start() once
+ *  early in startup (before any CKey use) and ECC_Stop() once at shutdown. */
+void ECC_Start(void);
+void ECC_Stop(void);
+
+/** Check that required EC support is available at runtime (signs+verifies a
+ *  known test vector through the live context). */
 bool ECC_InitSanityCheck(void);
 
 #endif
