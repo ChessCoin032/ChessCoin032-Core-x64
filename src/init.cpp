@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include "txdb.h"
 #include "walletdb.h"
+#include "sqlitewallet.h"     // v1.5.4 #3
+#include "walletmigrate.h"    // v1.5.4 #3
 #include "bitcoinrpc.h"
 #include "net.h"
 #include "init.h"
@@ -91,6 +93,8 @@ void Shutdown(void* parg)
         bitdb.Flush(false);
         StopNode();
         bitdb.Flush(true);
+        sqlitedb.Flush(GetArg("-wallet", "wallet.dat"));   // v1.5.4 #3: checkpoint SQLite wallet
+        ECC_Stop();                                        // v1.5.4 #2: destroy the libsecp256k1 context
         boost::filesystem::remove(GetPidFile());
         UnregisterWallet(pwalletMain);
         delete pwalletMain;
@@ -361,9 +365,10 @@ std::string HelpMessage()
  */
 bool InitSanityCheck(void)
 {
+    ECC_Start();    // v1.5.4 #2: create the libsecp256k1 context before any key use
     if(!ECC_InitSanityCheck()) {
-        InitError("OpenSSL appears to lack support for elliptic curve cryptography. For more "
-                  "information, visit https://en.bitcoin.it/wiki/OpenSSL_and_EC_Libraries");
+        InitError("Elliptic curve cryptography sanity check failed. The libsecp256k1 "
+                  "library is missing or did not initialize correctly.");
         return false;
     }
 
@@ -572,6 +577,21 @@ bool AppInit2()
 
     uiInterface.InitMessage(_("Verifying database integrity..."));
 
+    // v1.5.4 #3: convert a legacy Berkeley DB wallet to SQLite. This MUST run
+    // before bitdb.Open(): the migration opens its own recovered BDB
+    // environment on the data dir, and two recovered envs on the same dir
+    // would conflict. On an already-SQLite wallet it returns immediately and
+    // touches no BDB environment.
+    {
+        std::string strMigErr;
+        WalletMigrateResult mr = MigrateWalletToSQLite(strWalletFileName, strMigErr);
+        if (mr == WMIGRATE_ERROR)
+            return InitError(strprintf(_("Wallet migration to SQLite failed: %s\n"
+                                         "Your original wallet was left untouched."), strMigErr.c_str()));
+        if (mr == WMIGRATE_DONE)
+            uiInterface.InitMessage(_("Wallet converted to SQLite."));
+    }
+
     if (!bitdb.Open(GetDataDir()))
     {
         string msg = strprintf(_("Error initializing database environment %s!"
@@ -580,26 +600,20 @@ bool AppInit2()
         return InitError(msg);
     }
 
-    if (GetBoolArg("-salvagewallet"))
+    // -salvagewallet is a legacy Berkeley DB recovery tool. A migrated wallet is
+    // SQLite, so only run the BDB salvage when the file is still BDB.
+    if (GetBoolArg("-salvagewallet") && !CSQLiteEnv::IntegrityCheck(strWalletFileName))
     {
         // Recover readable keypairs:
         if (!CWalletDB::Recover(bitdb, strWalletFileName, true))
             return false;
     }
 
+    // v1.5.4 #3: SQLite integrity check in place of the old BDB bitdb.Verify().
     if (boost::filesystem::exists(GetDataDir() / strWalletFileName))
     {
-        CDBEnv::VerifyResult r = bitdb.Verify(strWalletFileName, CWalletDB::Recover);
-        if (r == CDBEnv::RECOVER_OK)
-        {
-            string msg = strprintf(_("Warning: wallet.dat corrupt, data salvaged!"
-                                     " Original wallet.dat saved as wallet.{timestamp}.bak in %s; if"
-                                     " your balance or transactions are incorrect you should"
-                                     " restore from a backup."), strDataDir.c_str());
-            uiInterface.ThreadSafeMessageBox(msg, _("ChessCoin 0.32%"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
-        }
-        if (r == CDBEnv::RECOVER_FAIL)
-            return InitError(_("wallet.dat corrupt, salvage failed"));
+        if (!CSQLiteEnv::IntegrityCheck(strWalletFileName))
+            return InitError(_("wallet file (SQLite) failed integrity check"));
     }
 
     // ********************************************************* Step 6: network initialization

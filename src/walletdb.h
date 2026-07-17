@@ -5,7 +5,10 @@
 #ifndef BITCOIN_WALLETDB_H
 #define BITCOIN_WALLETDB_H
 
-#include "db.h"
+// v1.5.4 #3: wallet backend migrated from Berkeley DB to SQLite.
+// sqlitewallet.h pulls in db.h for the DB_NEXT/DB_SET_RANGE/DB_NOTFOUND macros
+// and nWalletDBUpdated; CWalletDB now derives from CSQLiteDB instead of CDB.
+#include "sqlitewallet.h"
 #include "base58.h"
 
 class CKeyPool;
@@ -56,10 +59,10 @@ public:
 
 
 /** Access to the wallet database (wallet.dat) */
-class CWalletDB : public CDB
+class CWalletDB : public CSQLiteDB
 {
 public:
-    CWalletDB(std::string strFilename, const char* pszMode="r+") : CDB(strFilename.c_str(), pszMode)
+    CWalletDB(std::string strFilename, const char* pszMode="r+") : CSQLiteDB(strFilename.c_str(), pszMode)
     {
     }
 private:
