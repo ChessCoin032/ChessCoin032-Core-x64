@@ -1,11 +1,11 @@
 TEMPLATE = app
 TARGET = chesscoin-qt
-VERSION = 1.5.3
 INCLUDEPATH += src src/json src/qt
-DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE QT_SUPPORTSSL __STDC_FORMAT_MACROS __STDC_LIMIT_MACROS TWO_CHAT_VERSIONS
+DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE QT_SUPPORTSSL TWO_CHAT_VERSIONS SECP256K1_STATIC SQLITE_THREADSAFE=1 __STDC_FORMAT_MACROS __STDC_LIMIT_MACROS
+!win32:DEFINES += WAYLANDMODE
 CONFIG += no_include_pwd
 CONFIG += thread
-CONFIG -= embed_manifest_exe multimedia-wmf
+win32:CONFIG -= embed_manifest_exe multimedia-wmf
 CONFIG += static release
 CONFIG += staticlib
 
@@ -19,16 +19,16 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 
 # Optimization level change (e.g., avoid aggressive optimizations)
 QMAKE_CXXFLAGS_RELEASE -= -O2
-QMAKE_CXXFLAGS_RELEASE += -O1
+QMAKE_CXXFLAGS_RELEASE -= -O1
 
 # Ensure no potentially unsafe optimization flags are used
-QMAKE_CXXFLAGS += -fno-omit-frame-pointer
+QMAKE_CXXFLAGS -= -fno-omit-frame-pointer
 
 QMAKE_CXXFLAGS += -std=c++14
 QMAKE_CXXFLAGS += -fPIC
+macx: QMAKE_CXXFLAGS += -Wno-enum-constexpr-conversion
 
-
-# for boost 1.37, add -mt to the boost libraries
+# for boost 1.77, add -mt to the boost libraries
 # use: qmake BOOST_LIB_SUFFIX=-mt
 # for boost thread win32 with _win32 sufix
 # use: BOOST_THREAD_LIB_SUFFIX=_win32-...
@@ -42,27 +42,63 @@ OBJECTS_DIR = build
 MOC_DIR = build
 UI_DIR = build
 
-BOOST_LIB_SUFFIX=-mgw7-mt-s-x64-1_77
-BOOST_INCLUDE_PATH=D:/ChessCoinLibs64/boost_1_77_0
-BOOST_LIB_PATH=D:/ChesscoinLibs64/boost_1_77_0/stage/lib
+BASE_DIR=C:/Projects/src/ChessCoin032-Core-x64-dev/3rd-party
+#BASE_DIR=/home/aaa/ChessCoin032-Core-x64/3rd-party
 
-BDB_INCLUDE_PATH=D:/ChessCoinLibs64/db-6.0.20/build_windows
-BDB_LIB_PATH=D:/ChessCoinLibs64/db-6.0.20/build_windows
+win32:BOOST_LIB_SUFFIX=-mgw8-mt-s-x64-1_77
+macx {
+    BOOST_LIB_SUFFIX=-mt-s-a64
+	
+	HEADERS += src/qt/macdockiconhandler.h
+	OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm
+	LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
+	DEFINES += MAC_OSX MSG_NOSIGNAL=0
+	ICON = src/qt/res/icons/bitcoin.icns
+	TARGET = "chesscoin-qt"
+	QMAKE_CFLAGS_THREAD += -pthread
+	QMAKE_LFLAGS_THREAD += -pthread
+	QMAKE_CXXFLAGS_THREAD += -pthread
+} else:!win32 {
+    contains(QT_ARCH, arm64) {
+        BOOST_LIB_SUFFIX=-mt-s-a64
+    } else {
+        BOOST_LIB_SUFFIX=-mt-s-x64
+    }
+}
+BOOST_INCLUDE_PATH=$$BASE_DIR/boost_1_77_0
+BOOST_LIB_PATH=$$BASE_DIR/boost_1_77_0/stage/lib
 
-OPENSSL_INCLUDE_PATH=D:/ChesscoinLibs64/openssl-3.4.0-static/include
-OPENSSL_LIB_PATH=D:/ChesscoinLibs64/openssl-3.4.0-static/lib64
+win32 {
+BDB_INCLUDE_PATH=$$BASE_DIR/db-6.2.32/build_windows
+BDB_LIB_PATH=$$BASE_DIR/db-6.2.32/build_windows
+}
+!win32 {
+BDB_INCLUDE_PATH=$$BASE_DIR/db-6.2.32/build_unix
+BDB_LIB_PATH=$$BASE_DIR/db-6.2.32/build_unix
+}
 
-QRENCODE_INCLUDE_PATH=D:/ChessCoinLibs64/qrencode-4.1.1-static
-QRENCODE_LIB_PATH=D:/ChessCoinLibs64/qrencode-4.1.1-static/.libs
+OPENSSL_INCLUDE_PATH=$$BASE_DIR/openssl-3.4.0/include
+OPENSSL_LIB_PATH=$$BASE_DIR/openssl-3.4.0
+SECP256K1_INCLUDE_PATH=$$BASE_DIR/secp256k1-0.7.1/include $$BASE_DIR/secp256k1-0.7.1/contrib
+SECP256K1_LIB_PATH=$$BASE_DIR/secp256k1-0.7.1/.libs
 
-QRDECODE_INCLUDE_PATH=D:/ChessCoinLibs64/qzxing
-QRDECODE_LIB_PATH=D:/ChessCoinLibs64/qzxing/staticlib
+QRENCODE_INCLUDE_PATH=$$BASE_DIR/libqrencode-4.1.1
+QRENCODE_LIB_PATH=$$BASE_DIR/libqrencode-4.1.1
 
-CURL_INCLUDE_PATH=D:/ChessCoinLibs64/curl-8.11.0/include
-CURL_LIB_PATH=D:/ChesscoinLibs64/curl-8.11.0/lib/.libs
+QRDECODE_INCLUDE_PATH=$$BASE_DIR/qzxing-3.3.0/src
+QRDECODE_LIB_PATH=$$BASE_DIR/qzxing-3.3.0/src
 
-MINGW_INCLUDE_PATH=D:/msys64/mingw64/include
-MINGW_LIB_PATH=D:/msys64/mingw64/lib
+CURL_INCLUDE_PATH=$$BASE_DIR/curl-8.11.0/include
+CURL_LIB_PATH=$$BASE_DIR/curl-8.11.0/lib/.libs
+
+# Custom zlib built WITHOUT stack protector
+ZLIB_INCLUDE_PATH=$$BASE_DIR/zlib-1.3.2
+ZLIB_LIB_PATH=$$BASE_DIR/zlib-1.3.2
+
+win32 {
+MINGW_INCLUDE_PATH=C:/msys64/mingw64/include
+MINGW_LIB_PATH=C:/msys64/mingw64/lib
+}
 
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
@@ -84,21 +120,13 @@ contains(DEBUG, 1) {
     QMAKE_CXXCFLAGS += -g -O0
 }
 
-!win32 {
-# for extra security against potential buffer overflows: enable GCCs Stack Smashing Protection
-QMAKE_CXXFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
-QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
-# We need to exclude this for Windows cross compile with MinGW 4.2.x, as it will result in a non-working executable!
-# This can be enabled for Windows, when we switch to MinGW >= 4.4.x.
-}
-# for extra security on Windows: enable ASLR and DEP via GCC linker flags
-
-
-win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat
+# Custom zlib (built without stack protector) MUST be searched before /mingw64/lib
+# This ensures Qt's auto-added -lz resolves to our safe libz.a
+win32:QMAKE_LFLAGS += -L$$ZLIB_LIB_PATH
 
 # for debugging at release mode
 #QMAKE_CXXFLAGS +=-g
-#QMAKE_LFLAGS_RELEASE -= -Wl,-s
+#win32:QMAKE_LFLAGS_RELEASE -= -Wl,-s
 #QMAKE_CXXFLAGS_RELEASE += $$QMAKE_CFLAGS_RELEASE_WITH_DEBUGINFO
 #QMAKE_LFLAGS_RELEASE += $$QMAKE_LFLAGS_RELEASE_WITH_DEBUGINFO
 
@@ -131,8 +159,8 @@ contains(USE_RASPBERRY, 1) {
 
 contains(USE_UPNP, 1) {
     message(Building with miniupnpc support)
-    INCLUDEPATHS += -I"D:/ChessCoinLibs64/miniupnpc-2.2.3"
-    MINIUPNPC_LIB_PATH=D:/ChessCoinLibs64/miniupnpc-2.2.3
+    INCLUDEPATHS += -I$$BASE_DIR/miniupnpc-2.2.3
+    MINIUPNPC_LIB_PATH=$$BASE_DIR/miniupnpc-2.2.3
     LIBS += $$join(MINIUPNPC_LIB_PATH,,-L,) -lminiupnpc
     win32:LIBS += -liphlpapi
     DEFS += -DSTATICLIB -DUSE_UPNP=$(USE_UPNP)
@@ -174,21 +202,6 @@ SOURCES += src/txdb-leveldb.cpp
 
 genleveldb.target = $$PWD/src/leveldb/libleveldb.a
 genleveldb.depends = FORCE
-
-#PRE_TARGETDEPS += $$PWD/src/leveldb/libleveldb.a
-#QMAKE_EXTRA_TARGETS += genleveldb
-##Gross ugly hack that depends on qmake internals, unfortunately there is no other way to do it.
-#QMAKE_CLEAN += $$PWD/src/leveldb/libleveldb.a; cd $$PWD/src/leveldb ; $(MAKE) clean
-
-# regenerate src/build.h
-!windows|contains(USE_BUILD_INFO, 1) {
-    genbuild.depends = FORCE
-    genbuild.commands = cd $$PWD; /bin/sh share/genbuild.sh $$OUT_PWD/build/build.h
-    genbuild.target = $$OUT_PWD/build/build.h
-    PRE_TARGETDEPS += $$OUT_PWD/build/build.h
-    QMAKE_EXTRA_TARGETS += genbuild
-    DEFINES += HAVE_BUILD_INFO
-}
 
 contains(USE_O3, 1) {
     message(Building O3 optimization flag)
@@ -317,7 +330,12 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/burncoinsdialog.h \
     src/qt/blockbrowser.h \
     src/qt/sendtimelockdialog.h \
-    src/qt/calctimestampdlg.h
+    src/qt/calctimestampdlg.h \
+	src/secp256k1/contrib/lax_der_parsing.h \
+	src/secp256k1/contrib/lax_der_privatekey_parsing.h \
+	src/sqlite3/sqlite3.h \
+	src/sqlitewallet.h \
+	src/walletmigrate.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/intro.cpp \
@@ -338,7 +356,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/sync.cpp \
     src/util.cpp \
     src/netbase.cpp \
-    src/key.cpp \
+	src/key.cpp \
     src/script.cpp \
     src/main.cpp \
     src/miner.cpp \
@@ -408,7 +426,12 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/zerocoin/Params.cpp \
     src/zerocoin/SerialNumberSignatureOfKnowledge.cpp \
     src/zerocoin/SpendMetaData.cpp \
-    src/zerocoin/ZeroTest.cpp
+    src/zerocoin/ZeroTest.cpp \
+	src/secp256k1/contrib/lax_der_parsing.c \
+	src/secp256k1/contrib/lax_der_privatekey_parsing.c \
+	src/sqlite3/sqlite3.c \
+	src/sqlitewallet.cpp \
+    src/walletmigrate.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc \
@@ -464,7 +487,7 @@ TSQM.CONFIG = no_link
 QMAKE_EXTRA_COMPILERS += TSQM
 PRE_TARGETDEPS += compiler_TSQM_make_all
 
-# "Other files" to show in Qt Creator
+# "Other files" is to show in Qt Creator
 OTHER_FILES += \
     doc/*.rst doc/*.txt doc/README README.md res/bitcoin-qt.rc
 
@@ -472,49 +495,37 @@ OTHER_FILES += \
 windows:DEFINES += WIN32
 windows:RC_FILE = src/qt/res/bitcoin-qt.rc
 
-#windows:!contains(MINGW_THREAD_BUGFIX, 0) {
-#    # At least qmake's win32-g++-cross profile is missing the -lmingwthrd
-#    # thread-safety flag. GCC has -mthreads to enable this, but it doesn't
-#    # work with static linking. -lmingwthrd must come BEFORE -lmingw, so
-#    # it is prepended to QMAKE_LIBS_QT_ENTRY.
-#    # It can be turned off with MINGW_THREAD_BUGFIX=0, just in case it causes
-#    # any problems on some untested qmake profile now or in the future.
-
-#    DEFINES += _MT BOOST_THREAD_PROVIDES_GENERIC_SHARED_MUTEX_ON_WIN
-#    QMAKE_LIBS_QT_ENTRY = -lmingwthrd $$QMAKE_LIBS_QT_ENTRY
-#}
-
 # Windows system libraries MUST come BEFORE OpenSSL
-LIBS += -lcrypt32 -lws2_32 -ladvapi32 -lgdi32 -luser32
+windows:LIBS += -lcrypt32 -lws2_32 -ladvapi32 -lgdi32 -luser32
 
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
-INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH $$QRDECODE_INCLUDE_PATH $$MINGW_INCLUDE_PATH
+INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$SECP256K1_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH $$QRDECODE_INCLUDE_PATH $$ZLIB_INCLUDE_PATH
+# Windows: IMPORTANT: ZLIB_INCLUDE_PATH must come BEFORE MINGW_INCLUDE_PATH so our zlib.h is found first
+windows:INCLUDEPATH += $$MINGW_INCLUDE_PATH
 DEPENDPATH += $$BOOST_LIB_PATH
 
-LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,) $$join(QRDECODE_LIB_PATH,,-L,)
-LIBS +=  -lssl -lcrypto -ldb_cxx
+LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(SECP256K1_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,) $$join(QRDECODE_LIB_PATH,,-L,)
+LIBS +=  -lssl -lcrypto -lsecp256k1 -ldb_cxx
 
+windows {
+QMAKE_LFLAGS += -static -static-libgcc -static-libstdc++
+QMAKE_LFLAGS_RELEASE += -static -static-libgcc -static-libstdc++
+QMAKE_CXXFLAGS += -static-libgcc -static-libstdc++
 
-QMAKE_LFLAGS += -static -static-libgcc -static-libstdc++ -Wl,-Bstatic -lpthread -Wl,-Bdynamic
-QMAKE_CXXFLAGS += -static -static-libgcc -static-libstdc++
-LIBS += -Wl,-Bstatic -lpthread -Wl,-Bdynamic
+LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32 -lcrypt32
+}
 
+LIBS += -lboost_system$$BOOST_LIB_SUFFIX -lboost_filesystem$$BOOST_LIB_SUFFIX  -lboost_program_options$$BOOST_LIB_SUFFIX -lboost_thread$$BOOST_LIB_SUFFIX -lboost_chrono$$BOOST_LIB_SUFFIX
 
-# -lgdi32 has to happen after -lcrypto (see  #681)
-windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32 -lcrypt32
+LIBS += -lqzxing
 
-
-LIBS += -lboost_system$$BOOST_LIB_SUFFIX -lboost_filesystem$$BOOST_LIB_SUFFIX  -lboost_program_options$$BOOST_LIB_SUFFIX -lboost_thread$$BOOST_LIB_SUFFIX libboost_chrono$$BOOST_LIB_SUFFIX
-
-# LIBS += -lQZXing -liconv
-LIBS += -lQZXing
-
+LIBS += $$join(ZLIB_LIB_PATH,,-L,)
+DEPENDPATH += $$ZLIB_LIB_PATH
+# Windows: IMPORTANT: custom zlib path MUST come BEFORE MINGW_LIB_PATH so our libz.a is found first
+windows {
 LIBS += $$join(MINGW_LIB_PATH,,-L,)
 DEPENDPATH += $$MINGW_LIB_PATH
-
-LIBS += -Wl,-Bstatic -liconv -lzstd -Wl,-Bdynamic
-# Add any MinGW static libraries
-LIBS += -Wl,-Bstatic -lwinpthread -lstdc++ -lgcc -Wl,-Bdynamic
+}
 
 contains(RELEASE, 1) {
     !windows:!macx {
@@ -528,4 +539,13 @@ contains(RELEASE, 1) {
     LIBS += -lrt -ldl
 }
 
+win32:LIBS += -Wl,-Bstatic \
+              -liconv \
+              -lzstd \
+              -lstdc++ \
+              -lpthread \
+              -lwinpthread \
+              -lgcc_eh \
+              -lgcc
+			  
 system($$QMAKE_LRELEASE -silent $$_PRO_FILE_)

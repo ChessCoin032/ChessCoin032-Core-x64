@@ -33,3 +33,5 @@ Makefile.Debug
 Makefile.Release
 object_script.chesscoin-qt.Debug
 object_script.chesscoin-qt.Release
+
+3rd-party
