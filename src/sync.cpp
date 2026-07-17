@@ -1,9 +1,15 @@
 // Copyright (c) 2011-2012 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+//
+// v1.5.4 point #5: DEBUG_LOCKORDER deadlock detector migrated from
+// boost::mutex + boost::thread_specific_ptr to std::mutex + thread_local.
+// Behavior is unchanged.
 
 #include "sync.h"
 #include "util.h"
+
+#include <memory>
 
 #include <boost/foreach.hpp>
 
@@ -49,9 +55,9 @@ private:
 
 typedef std::vector< std::pair<void*, CLockLocation> > LockStack;
 
-static boost::mutex dd_mutex;
+static std::mutex dd_mutex;
 static std::map<std::pair<void*, void*>, LockStack> lockorders;
-static boost::thread_specific_ptr<LockStack> lockstack;
+static thread_local std::unique_ptr<LockStack> lockstack;
 
 
 static void potential_deadlock_detected(const std::pair<void*, void*>& mismatch, const LockStack& s1, const LockStack& s2)
