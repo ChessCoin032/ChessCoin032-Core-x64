@@ -34,6 +34,17 @@ Issues with no commits will be given a similar warning, and closed after
 15 days from their last activity. Issues closed in this manner will be 
 labeled 'stale'.
 
+How to install the dependencies on Ubuntu
+======================================================
+sudo apt install libxcb1-dev libxcb-glx0-dev libxcb-icccm4-dev \
+  libxcb-image0-dev libxcb-keysyms1-dev libxcb-randr0-dev \
+  libxcb-render0-dev libxcb-render-util0-dev libxcb-shape0-dev \
+  libxcb-shm0-dev libxcb-sync-dev libxcb-util-dev libxcb-xfixes0-dev \
+  libxcb-xinerama0-dev libxcb-xkb-dev libxcb-xinput-dev \
+  libxkbcommon-dev libxkbcommon-x11-dev \
+  libx11-dev libx11-xcb-dev libxext-dev libxrender-dev \
+  libfontconfig1-dev libfreetype-dev \
+  libpcre2-16-0
 
 How to build ChessCoin GUI application on Windows
 ======================================================
